@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -20,7 +21,7 @@
       </Text>
       <ImageView fitHeight="166.0" fitWidth="279.0" layoutX="261.0" layoutY="97.0">
          <image>
-            <Image url="@../../Documents/Bild2.png" />
+            <Image url="@../Bild2.png" />
          </image>
       </ImageView>
       <Button layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1" />
