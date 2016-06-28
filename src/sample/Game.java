@@ -9,6 +9,7 @@ public class Game {
     public static boolean player1 = true;
     public static boolean player2 = false;
     private boolean currentPlayer = player1;
+    private Point[][] board = new Point[3][8];
 
     public boolean checkForMill(){
         boolean mill = false;

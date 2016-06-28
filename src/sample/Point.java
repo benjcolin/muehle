@@ -15,7 +15,7 @@ public class Point {
         this.occupied = occupied;
     }
 
-    //Püft ob die Position von der verschoben wurde neben der neuen Position ist
+    //Prüft ob die Position von der verschoben wurde neben der neuen Position ist
     public boolean isOldPointNext(Point oldPoint){
         boolean oldPointNext = true;
 
