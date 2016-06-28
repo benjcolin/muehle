@@ -13,13 +13,25 @@
          </font>
       </Text>
       <Label layoutX="50.0" layoutY="211.0" prefHeight="17.0" prefWidth="104.0" text="Anzahl Spieler" />
-      <Button layoutX="484.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Start" />
+      <Button layoutX="484.0" layoutY="349.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Start" />
       <RadioButton layoutX="50.0" layoutY="242.0" mnemonicParsing="false" text="4 Spieler" />
       <RadioButton layoutX="50.0" layoutY="269.0" mnemonicParsing="false" text="6 Spieler" />
       <RadioButton layoutX="50.0" layoutY="295.0" mnemonicParsing="false" text="8 Spieler" />
-      <TextField layoutX="169.0" layoutY="207.0" />
-      <TextField layoutX="169.0" layoutY="238.0" />
-      <TextField layoutX="169.0" layoutY="312.0" />
-      <TextField layoutX="169.0" layoutY="274.0" />
+      <TextField layoutX="211.0" layoutY="194.0" />
+      <TextField layoutX="211.0" layoutY="237.0" />
+      <TextField layoutX="211.0" layoutY="317.0" />
+      <TextField layoutX="211.0" layoutY="278.0" />
+      <Label layoutX="211.0" layoutY="177.0" text="Spieler 1" />
+      <Label layoutX="211.0" layoutY="220.0" text="Spieler 2" />
+      <Label layoutX="211.0" layoutY="261.0" text="Spieler 3" />
+      <Label layoutX="211.0" layoutY="300.0" text="Spieler 4" />
+      <Label layoutX="400.0" layoutY="300.0" text="Spieler 8" />
+      <Label layoutX="400.0" layoutY="261.0" text="Spieler 7" />
+      <Label layoutX="400.0" layoutY="220.0" text="Spieler 6" />
+      <Label layoutX="400.0" layoutY="177.0" text="Spieler 5" />
+      <TextField layoutX="400.0" layoutY="278.0" />
+      <TextField layoutX="400.0" layoutY="317.0" />
+      <TextField layoutX="400.0" layoutY="237.0" />
+      <TextField layoutX="400.0" layoutY="194.0" />
    </children>
 </Pane>
