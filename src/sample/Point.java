@@ -15,6 +15,18 @@ public class Point {
         this.occupied = occupied;
     }
 
+    //Püft ob die Position von der verschoben wurde neben der neuen Position ist
+    public boolean isOldPointNext(Point oldPoint){
+        boolean oldPointNext = true;
 
+        //abfrage Logik
+
+        return oldPointNext;
+    }
+
+    //Verschiebt den Spielstein
+    public void movePiece(Piece piece){
+
+    }
 
 }
