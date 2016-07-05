@@ -12,7 +12,7 @@ public class Tournament {
         return players;
     }
 
-    public void addPlayers(Player player) {
+    public void addPlayer(Player player) {
         players.add(player);
     }
 }
