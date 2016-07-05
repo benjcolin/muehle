@@ -33,8 +33,6 @@ public class Game {
     public boolean isOldPointNext(Point oldPoint, Point newPoint){
         boolean oldPointNext = true;
 
-
-
         return oldPointNext;
     }
 }
