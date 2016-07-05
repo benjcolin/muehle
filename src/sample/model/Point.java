@@ -6,6 +6,7 @@ package sample.model;
 public class Point {
 
     private Boolean occupied;
+    private Piece piece;
 
     public Boolean getOccupied() {
         return occupied;
@@ -20,4 +21,11 @@ public class Point {
 
     }
 
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
 }
