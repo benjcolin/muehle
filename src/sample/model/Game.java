@@ -1,6 +1,4 @@
-package sample;
-
-import java.util.ArrayList;
+package sample.model;
 
 /**
  * Created by Benjamin on 28.06.2016.
