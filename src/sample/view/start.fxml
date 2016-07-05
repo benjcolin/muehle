@@ -24,7 +24,7 @@
             <Image url="@../../Bild2.png" />
          </image>
       </ImageView>
-      <Button layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1" />
+      <Button layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1"  onAction="" />
       <Button layoutX="374.0" layoutY="308.0" mnemonicParsing="false" text="1 vs KI" />
       <Button layoutX="621.0" layoutY="308.0" mnemonicParsing="false" text="Turnier" />
    </children>
