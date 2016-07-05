@@ -26,6 +26,4 @@ public class Piece {
     public void setSelected(Boolean selected) {
         this.selected = selected;
     }
-
-
 }
