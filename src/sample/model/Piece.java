@@ -6,10 +6,8 @@ import java.awt.*;
  * Created by Benjamin on 28.06.2016.
  */
 public class Piece {
-
     private Boolean selected;
     private Color color;
-
 
     public Color getColor() {
         return color;
