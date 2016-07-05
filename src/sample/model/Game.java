@@ -25,6 +25,18 @@ public class Game {
 
     }
 
+    //Verschiebt den Spielstein
+    public void movePiece(Piece piece, Point point){
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (board[i][j].getPiece() == piece){
+                    board[i][j].removePiece();
+                }
+            }
+        }
+        point.setPiece(piece);
+    }
+
     public boolean allowedToRemovePiece(Piece piece) {
         if (piece.getColor() != currentPlayer.getColor()){
             return true;

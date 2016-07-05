@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable{
     private Stage primaryStage;
 
-
     public Controller(Stage stage){
         primaryStage = stage;
     }
