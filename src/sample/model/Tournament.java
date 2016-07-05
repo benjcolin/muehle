@@ -7,4 +7,12 @@ import java.util.ArrayList;
  */
 public class Tournament {
     private ArrayList<Player> players = new ArrayList<>();
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void addPlayers(Player player) {
+        players.add(player);
+    }
 }
