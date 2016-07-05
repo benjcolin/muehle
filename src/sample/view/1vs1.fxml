@@ -14,10 +14,10 @@
             <Font name="Arial" size="37.0" />
          </font>
       </Text>
-      <TextField layoutX="50.0" layoutY="268.0" />
-      <TextField layoutX="400.0" layoutY="268.0" />
+      <TextField fx:id="spieler1Name"  layoutX="50.0" layoutY="268.0"  />
+      <TextField fx:id="spieler2Name" layoutX="400.0" layoutY="268.0"  />
       <Label layoutX="50.0" layoutY="240.0" prefHeight="17.0" prefWidth="65.0" text="Spieler 1" />
       <Label layoutX="400.0" layoutY="240.0" prefHeight="17.0" prefWidth="65.0" text="Spieler 2" />
-      <Button layoutX="484.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Start" />
+      <Button fx:id="startButton" layoutX="484.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Start"  />
    </children>
 </Pane>
