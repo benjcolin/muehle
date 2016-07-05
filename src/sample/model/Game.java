@@ -13,9 +13,9 @@ public class Game {
         boolean mill = false;
         //CHECK SECTORS
         checkSector(0,1,2,mill); //TOP
+        checkSector(2,3,4,mill); //RIGHT
         checkSector(4,5,6,mill); //BOTTOM
         checkSector(6,7,0,mill); //LEFT
-        checkSector(2,3,4,mill); //RIGHT
         //CHECK SIDE MILLS
         checkSideMill(mill);
         return mill;
