@@ -33,18 +33,34 @@ public class Game {
         }
     }
 
-    //Prüft ob die Position von der verschoben wurde neben der neuen Position ist
+    //Prüft ob die Position, von der verschoben wurde neben der neuen Position ist
     public boolean isOldPointNext(Point oldPoint, Point newPoint) {
+        int oldRow = 0;
+        int oldCol = 0;
+        int newRow = 0;
+        int newCol = 0;
         boolean oldPointNext = false;
         for(int i = 0 ; i < 3 ; i++){
             for(int j = 0; j < 8; j++){
                 if (oldPoint == board[i][j]){
-                    int oldRow = i;
-                    int oldCol = j;
+                    oldRow = i;
+                    oldCol = j;
                 }else if (newPoint == board[i][j]){
-                    int newRow = i;
-                    int newCol = j;
+                    newRow = i;
+                    newCol = j;
                 }
+            }
+        }
+
+        if(Math.abs(oldRow - newRow) == 0){
+            if (Math.abs(oldCol - oldRow) == 1 || Math.abs(oldCol - oldRow) == 7 ){
+                //Auf dem gleichen Quadrat und direkt nebeneinander
+                oldPointNext = true;
+            }
+        }else if(Math.abs(oldRow - newRow) == 1){
+            if (oldCol == newCol && oldCol % 2 == 1){
+                //Auf verschiedenen Quadraten jedoch genug nahe und bei einem "Übergang"
+                oldPointNext = true;
             }
         }
         return oldPointNext;
