@@ -60,19 +60,145 @@ public class ControllerGame implements Initializable{
         player2Name.setText(tournament.getPlayers().get(1).getName().toString() + " ( Weiss )");
         currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
 
-        //Points zeichnen
-        for (int i = 0; i < 3; i++){
-            for(int j = 0; j < 8; j++){
-                board[i][j] = new Circle();
-                board[i][j].setRadius(12);
-                board[i][j].setFill(Color.BLACK);
-                board[i][j].setLayoutX(xAxis);
-                board[i][j].setLayoutY(yAxis);
-                board[i][j].setVisible(true);
-                board[i][j].setOnMouseClicked(this::pointHandler);
-                pane.getChildren().add(board[i][j]);
-            }
+        //Aussere Points zeichnen
+        int counter = 0;
+        for(int i = 0 ; i <3 ; i++){
+            board[0][counter] = new Circle();
+            board[0][counter].setRadius(12);
+            board[0][counter].setFill(Color.BLACK);
+            board[0][counter].setLayoutX(xAxis+(i*150));
+            board[0][counter].setLayoutY(yAxis);
+            board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[0][counter]);
+            counter++;
         }
+        for(int i = 0 ; i <2 ; i++){
+            board[0][counter] = new Circle();
+            board[0][counter].setRadius(12);
+            board[0][counter].setFill(Color.BLACK);
+            board[0][counter].setLayoutX(xAxis+(2*150));
+            board[0][counter].setLayoutY(yAxis+((1+i)*150));
+            board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[0][counter]);
+            counter++;
+        }
+        for(int i = 0 ; i <2 ; i++){
+            board[0][counter] = new Circle();
+            board[0][counter].setRadius(12);
+            board[0][counter].setFill(Color.BLACK);
+            board[0][counter].setLayoutX(xAxis+(i*150));
+            board[0][counter].setLayoutY(yAxis+(2*150));
+            board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[0][counter]);
+            counter++;
+        }
+
+        board[0][counter] = new Circle();
+        board[0][counter].setRadius(12);
+        board[0][counter].setFill(Color.BLACK);
+        board[0][counter].setLayoutX(xAxis);
+        board[0][counter].setLayoutY(yAxis+150);
+        board[0][counter].setVisible(true);
+        board[0][counter].setOnMouseClicked(this::pointHandler);
+        pane.getChildren().add(board[0][counter]);
+        counter=0;
+
+        //Mittlere Points zeichnen
+        xAxis = 100;
+        yAxis = 100;
+        for(int i = 0 ; i <3 ; i++){
+            board[1][counter] = new Circle();
+            board[1][counter].setRadius(12);
+            board[1][counter].setFill(Color.BLACK);
+            board[1][counter].setLayoutX(xAxis+(i*100));
+            board[1][counter].setLayoutY(yAxis);
+            board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[1][counter]);
+            counter++;
+        }
+        for(int i = 0 ; i <2 ; i++){
+            board[1][counter] = new Circle();
+            board[1][counter].setRadius(12);
+            board[1][counter].setFill(Color.BLACK);
+            board[1][counter].setLayoutX(xAxis+(2*100));
+            board[1][counter].setLayoutY(yAxis+((1+i)*100));
+            board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[1][counter]);
+            counter++;
+        }
+        for(int i = 0 ; i <2 ; i++){
+            board[1][counter] = new Circle();
+            board[1][counter].setRadius(12);
+            board[1][counter].setFill(Color.BLACK);
+            board[1][counter].setLayoutX(xAxis+(i*100));
+            board[1][counter].setLayoutY(yAxis+(2*100));
+            board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[1][counter]);
+            counter++;
+        }
+
+        board[1][counter] = new Circle();
+        board[1][counter].setRadius(12);
+        board[1][counter].setFill(Color.BLACK);
+        board[1][counter].setLayoutX(xAxis);
+        board[1][counter].setLayoutY(yAxis+100);
+        board[1][counter].setVisible(true);
+        board[1][counter].setOnMouseClicked(this::pointHandler);
+        pane.getChildren().add(board[1][counter]);
+        counter=0;
+
+        //innere Points zeichnen
+        xAxis = 150;
+        yAxis = 150;
+        for(int i = 0 ; i <3 ; i++){
+            board[2][counter] = new Circle();
+            board[2][counter].setRadius(12);
+            board[2][counter].setFill(Color.BLACK);
+            board[2][counter].setLayoutX(xAxis+(i*50));
+            board[2][counter].setLayoutY(yAxis);
+            board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[2][counter]);
+            counter++;
+        }
+        for(int i = 0 ; i <2 ; i++){
+            board[2][counter] = new Circle();
+            board[2][counter].setRadius(12);
+            board[2][counter].setFill(Color.BLACK);
+            board[2][counter].setLayoutX(xAxis+(2*50));
+            board[2][counter].setLayoutY(yAxis+((1+i)*50));
+            board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[2][counter]);
+            counter++;
+        }
+        for(int i = 0 ; i <2 ; i++){
+            board[2][counter] = new Circle();
+            board[2][counter].setRadius(12);
+            board[2][counter].setFill(Color.BLACK);
+            board[2][counter].setLayoutX(xAxis+(i*50));
+            board[2][counter].setLayoutY(yAxis+(2*50));
+            board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
+            pane.getChildren().add(board[2][counter]);
+            counter++;
+        }
+
+        board[2][counter] = new Circle();
+        board[2][counter].setRadius(12);
+        board[2][counter].setFill(Color.BLACK);
+        board[2][counter].setLayoutX(xAxis);
+        board[2][counter].setLayoutY(yAxis+50);
+        board[2][counter].setVisible(true);
+        board[2][counter].setOnMouseClicked(this::pointHandler);
+        pane.getChildren().add(board[2][counter]);
+        counter=0;
 
         //Button Aufgeben
         giveUp.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
@@ -87,5 +213,6 @@ public class ControllerGame implements Initializable{
     private void pointHandler(MouseEvent mouseEvent) {
         Circle c = (Circle) mouseEvent.getSource();
         c.setVisible(false);
+        //c.setVisible(false);
     }
 }
