@@ -1,6 +1,6 @@
 package sample.model;
 
-import java.awt.*;
+import javafx.scene.paint.Color;
 
 /**
  * Created by Benjamin on 28.06.2016.
@@ -8,6 +8,10 @@ import java.awt.*;
 public class Piece {
     private Boolean selected;
     private Color color;
+
+    public Piece(Color color){
+        this.color = color;
+    }
 
     public Color getColor() {
         return color;

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.shape.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -33,6 +30,7 @@
       <Line endY="100" layoutX="200.0" layoutY="250.0" strokeWidth="3.0" />
       <Line endX="100" layoutX="250.0" layoutY="200.0" strokeWidth="3.0" />
       <Line endX="100.0" layoutX="50.0" layoutY="200.0" strokeWidth="3.0" />
+      <!--
       <Circle layoutX="50" layoutY="50" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="200.0" layoutY="50.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="350.0" layoutY="50.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
@@ -57,6 +55,7 @@
       <Circle layoutX="250.0" layoutY="150.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="250.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="200.0" layoutY="150.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      -->
       <Text fx:id="currentPlayer" layoutX="399.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" >
          <font>
             <Font name="Arial" size="20.0" />

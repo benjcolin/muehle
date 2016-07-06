@@ -1,27 +1,19 @@
 package sample.controller;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.model.Game;
-import sample.model.Player;
+import sample.model.Point;
 import sample.model.Tournament;
 
-import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -58,8 +50,9 @@ public class ControllerGame implements Initializable{
         player2Name.setText(tournament.getPlayers().get(1).getName() + " ( Weiss )");
         currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
 
-        setPieces();
         setPoints();
+        setPieces();
+        actualizeScreen();
 
         //Button Aufgeben
         giveUp.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
@@ -72,9 +65,41 @@ public class ControllerGame implements Initializable{
     }
 
     private void pointHandler(MouseEvent mouseEvent) {
+        int row = 0;
+        int col = 0;
         Circle c = (Circle) mouseEvent.getSource();
-        c.setVisible(false);
-        //c.setVisible(false);
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (board[i][j] == c){
+                    row = i;
+                    col = j;
+                }
+            }
+        }
+        if (game.getNumberPiecesPlacedCurrentPlayer() < 9){
+            game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
+        }
+        game.changePlayer();
+        actualizeScreen();
+    }
+
+    private void actualizeScreen() {
+        currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
+        Point[][] pointBoard = game.getBoard();
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (pointBoard[i][j].getPiece() != null){
+                    pieces[i][j].setFill(pointBoard[i][j].getPiece().getColor());
+                    pieces[i][j].setVisible(true);
+                }else {
+                    pieces[i][j].setVisible(false);
+                }
+            }
+        }
+    }
+
+    private void pieceHandler(MouseEvent mouseEvent) {
+        Circle c = (Circle) mouseEvent.getSource();
     }
 
     private void setPoints(){
@@ -91,6 +116,7 @@ public class ControllerGame implements Initializable{
             board[0][counter].setLayoutX(xAxis+(i*150));
             board[0][counter].setLayoutY(yAxis);
             board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[0][counter]);
             counter++;
         }
@@ -101,6 +127,7 @@ public class ControllerGame implements Initializable{
             board[0][counter].setLayoutX(xAxis+(2*150));
             board[0][counter].setLayoutY(yAxis+((1+i)*150));
             board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[0][counter]);
             counter++;
         }
@@ -111,6 +138,7 @@ public class ControllerGame implements Initializable{
             board[0][counter].setLayoutX(xAxis+(i*150));
             board[0][counter].setLayoutY(yAxis+(2*150));
             board[0][counter].setVisible(true);
+            board[0][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[0][counter]);
             counter++;
         }
@@ -121,6 +149,7 @@ public class ControllerGame implements Initializable{
         board[0][counter].setLayoutX(xAxis);
         board[0][counter].setLayoutY(yAxis+150);
         board[0][counter].setVisible(true);
+        board[0][counter].setOnMouseClicked(this::pointHandler);
         pane.getChildren().add(board[0][counter]);
         counter=0;
 
@@ -134,6 +163,7 @@ public class ControllerGame implements Initializable{
             board[1][counter].setLayoutX(xAxis+(i*100));
             board[1][counter].setLayoutY(yAxis);
             board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[1][counter]);
             counter++;
         }
@@ -144,6 +174,7 @@ public class ControllerGame implements Initializable{
             board[1][counter].setLayoutX(xAxis+(2*100));
             board[1][counter].setLayoutY(yAxis+((1+i)*100));
             board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[1][counter]);
             counter++;
         }
@@ -154,6 +185,7 @@ public class ControllerGame implements Initializable{
             board[1][counter].setLayoutX(xAxis+(i*100));
             board[1][counter].setLayoutY(yAxis+(2*100));
             board[1][counter].setVisible(true);
+            board[1][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[1][counter]);
             counter++;
         }
@@ -164,6 +196,7 @@ public class ControllerGame implements Initializable{
         board[1][counter].setLayoutX(xAxis);
         board[1][counter].setLayoutY(yAxis+100);
         board[1][counter].setVisible(true);
+        board[1][counter].setOnMouseClicked(this::pointHandler);
         pane.getChildren().add(board[1][counter]);
         counter=0;
 
@@ -177,6 +210,7 @@ public class ControllerGame implements Initializable{
             board[2][counter].setLayoutX(xAxis+(i*50));
             board[2][counter].setLayoutY(yAxis);
             board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[2][counter]);
             counter++;
         }
@@ -187,6 +221,7 @@ public class ControllerGame implements Initializable{
             board[2][counter].setLayoutX(xAxis+(2*50));
             board[2][counter].setLayoutY(yAxis+((1+i)*50));
             board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[2][counter]);
             counter++;
         }
@@ -197,6 +232,7 @@ public class ControllerGame implements Initializable{
             board[2][counter].setLayoutX(xAxis+(i*50));
             board[2][counter].setLayoutY(yAxis+(2*50));
             board[2][counter].setVisible(true);
+            board[2][counter].setOnMouseClicked(this::pointHandler);
             pane.getChildren().add(board[2][counter]);
             counter++;
         }
@@ -207,15 +243,15 @@ public class ControllerGame implements Initializable{
         board[2][counter].setLayoutX(xAxis);
         board[2][counter].setLayoutY(yAxis+50);
         board[2][counter].setVisible(true);
+        board[2][counter].setOnMouseClicked(this::pointHandler);
         pane.getChildren().add(board[2][counter]);
-        counter=0;
     }
 
     private void setPieces(){
         int xAxis = 50;
         int yAxis = 50;
 
-        //Aussere Points zeichnen
+        //Aussere Pieces zeichnen
         int counter = 0;
         for(int i = 0 ; i <3 ; i++){
             pieces[0][counter] = new Circle();
@@ -224,7 +260,7 @@ public class ControllerGame implements Initializable{
             pieces[0][counter].setLayoutX(xAxis+(i*150));
             pieces[0][counter].setLayoutY(yAxis);
             pieces[0][counter].setVisible(false);
-            pieces[0][counter].setOnMouseClicked(this::pointHandler);
+            pieces[0][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[0][counter]);
             counter++;
         }
@@ -235,7 +271,7 @@ public class ControllerGame implements Initializable{
             pieces[0][counter].setLayoutX(xAxis+(2*150));
             pieces[0][counter].setLayoutY(yAxis+((1+i)*150));
             pieces[0][counter].setVisible(false);
-            pieces[0][counter].setOnMouseClicked(this::pointHandler);
+            pieces[0][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[0][counter]);
             counter++;
         }
@@ -246,7 +282,7 @@ public class ControllerGame implements Initializable{
             pieces[0][counter].setLayoutX(xAxis+(i*150));
             pieces[0][counter].setLayoutY(yAxis+(2*150));
             pieces[0][counter].setVisible(false);
-            pieces[0][counter].setOnMouseClicked(this::pointHandler);
+            pieces[0][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[0][counter]);
             counter++;
         }
@@ -257,11 +293,11 @@ public class ControllerGame implements Initializable{
         pieces[0][counter].setLayoutX(xAxis);
         pieces[0][counter].setLayoutY(yAxis+150);
         pieces[0][counter].setVisible(false);
-        pieces[0][counter].setOnMouseClicked(this::pointHandler);
+        pieces[0][counter].setOnMouseClicked(this::pieceHandler);
         pane.getChildren().add(pieces[0][counter]);
         counter=0;
 
-        //Mittlere Points zeichnen
+        //Mittlere Pieces zeichnen
         xAxis = 100;
         yAxis = 100;
         for(int i = 0 ; i <3 ; i++){
@@ -271,7 +307,7 @@ public class ControllerGame implements Initializable{
             pieces[1][counter].setLayoutX(xAxis+(i*100));
             pieces[1][counter].setLayoutY(yAxis);
             pieces[1][counter].setVisible(false);
-            pieces[1][counter].setOnMouseClicked(this::pointHandler);
+            pieces[1][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[1][counter]);
             counter++;
         }
@@ -282,7 +318,7 @@ public class ControllerGame implements Initializable{
             pieces[1][counter].setLayoutX(xAxis+(2*100));
             pieces[1][counter].setLayoutY(yAxis+((1+i)*100));
             pieces[1][counter].setVisible(false);
-            pieces[1][counter].setOnMouseClicked(this::pointHandler);
+            pieces[1][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[1][counter]);
             counter++;
         }
@@ -293,7 +329,7 @@ public class ControllerGame implements Initializable{
             pieces[1][counter].setLayoutX(xAxis+(i*100));
             pieces[1][counter].setLayoutY(yAxis+(2*100));
             pieces[1][counter].setVisible(false);
-            pieces[1][counter].setOnMouseClicked(this::pointHandler);
+            pieces[1][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[1][counter]);
             counter++;
         }
@@ -304,11 +340,11 @@ public class ControllerGame implements Initializable{
         pieces[1][counter].setLayoutX(xAxis);
         pieces[1][counter].setLayoutY(yAxis+100);
         pieces[1][counter].setVisible(false);
-        pieces[1][counter].setOnMouseClicked(this::pointHandler);
+        pieces[1][counter].setOnMouseClicked(this::pieceHandler);
         pane.getChildren().add(pieces[1][counter]);
         counter=0;
 
-        //innere Points zeichnen
+        //innere Pieces zeichnen
         xAxis = 150;
         yAxis = 150;
         for(int i = 0 ; i <3 ; i++){
@@ -318,7 +354,7 @@ public class ControllerGame implements Initializable{
             pieces[2][counter].setLayoutX(xAxis+(i*50));
             pieces[2][counter].setLayoutY(yAxis);
             pieces[2][counter].setVisible(false);
-            pieces[2][counter].setOnMouseClicked(this::pointHandler);
+            pieces[2][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[2][counter]);
             counter++;
         }
@@ -329,7 +365,7 @@ public class ControllerGame implements Initializable{
             pieces[2][counter].setLayoutX(xAxis+(2*50));
             pieces[2][counter].setLayoutY(yAxis+((1+i)*50));
             pieces[2][counter].setVisible(false);
-            pieces[2][counter].setOnMouseClicked(this::pointHandler);
+            pieces[2][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[2][counter]);
             counter++;
         }
@@ -340,7 +376,7 @@ public class ControllerGame implements Initializable{
             pieces[2][counter].setLayoutX(xAxis+(i*50));
             pieces[2][counter].setLayoutY(yAxis+(2*50));
             pieces[2][counter].setVisible(false);
-            pieces[2][counter].setOnMouseClicked(this::pointHandler);
+            pieces[2][counter].setOnMouseClicked(this::pieceHandler);
             pane.getChildren().add(pieces[2][counter]);
             counter++;
         }
@@ -351,8 +387,7 @@ public class ControllerGame implements Initializable{
         pieces[2][counter].setLayoutX(xAxis);
         pieces[2][counter].setLayoutY(yAxis+50);
         pieces[2][counter].setVisible(false);
-        pieces[2][counter].setOnMouseClicked(this::pointHandler);
+        pieces[2][counter].setOnMouseClicked(this::pieceHandler);
         pane.getChildren().add(pieces[2][counter]);
-        counter=0;
     }
 }

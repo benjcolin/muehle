@@ -1,6 +1,6 @@
 package sample.model;
 
-import java.awt.*;
+import javafx.scene.paint.Color;
 
 /**
  * Created by Benjamin on 28.06.2016.

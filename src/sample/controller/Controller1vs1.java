@@ -8,11 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.model.Player;
 import sample.model.Tournament;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ public class Controller1vs1 implements Initializable {
 
                 Tournament players = new Tournament();
 
-                Player player1 = new Player(Color.black, player1Name.getText());
-                Player player2 = new Player(Color.white, player2Name.getText());
+                Player player1 = new Player(Color.BLACK, player1Name.getText());
+                Player player2 = new Player(Color.WHITE, player2Name.getText());
 
                 players.addPlayer(player1);
                 players.addPlayer(player2);

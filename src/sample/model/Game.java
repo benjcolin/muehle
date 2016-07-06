@@ -1,6 +1,8 @@
 package sample.model;
 
-import java.awt.*;
+import javafx.scene.paint.Color;
+
+import java.util.Arrays;
 
 /**
  * Created by Benjamin on 28.06.2016.
@@ -8,52 +10,74 @@ import java.awt.*;
 public class Game {
     public Player player1;
     public Player player2;
-    private int numberOfPicesFromPlayer1onBoard;
-    private int numberOfPicesFromPlayer2onBoard;
-
     private Player currentPlayer;
     private Piece[] piecesOfPlayer1 = new Piece[9];
     private Piece[] piecesOfPlayer2 = new Piece[9];
-
+    private int numberPiecesPlacedPlayer1 = 0;
+    private int numberPiecesPlacedPlayer2 = 0;
     private Point[][] board = new Point[3][8];
 
     public Game(Player player1, Player player2){
         this.player1 = player1;
         this.player2 = player2;
         currentPlayer = player1;
+        for(int i = 0; i < 9 ; i++){
+            piecesOfPlayer1[i] = new Piece(Color.BLACK);
+        }
+        for(int i = 0; i < 9 ; i++){
+            piecesOfPlayer2[i] = new Piece(Color.WHITE);
+        }
+        for(int i = 0; i < 3; i++){
+            for (int j = 0; j < 8; j++){
+                board[i][j] = new Point();
+            }
+        }
     }
 
-    public void getPiecesFromPlayer1(Piece piece){
+    public int getNumberPiecesOnBoardCurrentPlayer(){
+        if(currentPlayer == player1){
+            return getNumberPiecesOnBoardPlayer1();
+        }else{
+            return getNumberPiecesOnBoardPlayer2();
+        }
+    }
+
+    public int getNumberPiecesOnBoardPlayer1(){
+        int numberOfPiecesFromPlayer1onBoard = 0;
         for(int i = 0 ; i < 3 ; i++){
             for(int j = 0; j < 8; j++){
-                if (board[i][j].getPiece().getColor() == Color.black){
-                    numberOfPicesFromPlayer1onBoard++;
+                if (board[i][j].getPiece() != null){
+                    if (board[i][j].getPiece().getColor() == Color.BLACK){
+                        numberOfPiecesFromPlayer1onBoard++;
+                    }
                 }
             }
         }
-
+        return numberOfPiecesFromPlayer1onBoard;
     }
 
-    public void getPiecesFromPlayer2(Piece piece){
+    public int getNumberPiecesOnBoardPlayer2(){
+        int numberOfPiecesFromPlayer2onBoard = 0;
         for(int i = 0 ; i < 3 ; i++){
             for(int j = 0; j < 8; j++){
-                if (board[i][j].getPiece().getColor() == Color.white){
-                    numberOfPicesFromPlayer2onBoard++;
+                if (board[i][j].getPiece() != null) {
+                    if (board[i][j].getPiece().getColor() == Color.WHITE) {
+                        numberOfPiecesFromPlayer2onBoard++;
+                    }
                 }
             }
         }
-
-
+        return numberOfPiecesFromPlayer2onBoard;
     }
 
     //Prüfen ob der currentPlayer eine NEUE Mühle gebildet hat
     public boolean checkForMill() {
         boolean mill = false;
         //CHECK SECTORS
-        checkSector(0,1,2,mill); //TOP
-        checkSector(2,3,4,mill); //RIGHT
-        checkSector(4,5,6,mill); //BOTTOM
-        checkSector(6,7,0,mill); //LEFT
+        mill = checkSector(0,1,2,mill); //TOP
+        mill = checkSector(2,3,4,mill); //RIGHT
+        mill = checkSector(4,5,6,mill); //BOTTOM
+        mill = checkSector(6,7,0,mill); //LEFT
         //CHECK SIDE MILLS
         checkSideMill(mill);
         return mill;
@@ -65,11 +89,19 @@ public class Game {
 
     //Verschiebt den Spielstein
     public void movePiece(Piece piece, Point point){
-        for(int i = 0 ; i < 3 ; i++){
-            for(int j = 0; j < 8; j++){
-                if (board[i][j].getPiece() == piece){
-                    board[i][j].removePiece();
+        if(getNumberPiecesOnBoardCurrentPlayer() == 9){
+            for(int i = 0 ; i < 3 ; i++){
+                for(int j = 0; j < 8; j++){
+                    if (board[i][j].getPiece() == piece){
+                        board[i][j].removePiece();
+                    }
                 }
+            }
+        }else{
+            if (currentPlayer == player1){
+                numberPiecesPlacedPlayer1++;
+            }else{
+                numberPiecesPlacedPlayer2++;
             }
         }
         point.setPiece(piece);
@@ -143,5 +175,38 @@ public class Game {
 
     public Player getCurrentPlayer() {
         return currentPlayer;
+    }
+
+    public int getNumberPiecesPlacedCurrentPlayer() {
+        if (currentPlayer == player1){
+            return numberPiecesPlacedPlayer1;
+        }else {
+            return numberPiecesPlacedPlayer2;
+        }
+    }
+
+    public Piece[] getPiecesOfCurrentPlayer() {
+
+        if (currentPlayer == player1){
+            return piecesOfPlayer1;
+        }else {
+            return piecesOfPlayer2;
+        }
+    }
+
+    public Point getPoint(int row, int col){
+        return board[row][col];
+    }
+
+    public void changePlayer() {
+        if (currentPlayer == player1){
+            currentPlayer = player2;
+        }else {
+            currentPlayer = player1;
+        }
+    }
+
+    public Point[][] getBoard() {
+        return board;
     }
 }
