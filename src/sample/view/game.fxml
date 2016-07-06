@@ -10,52 +10,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="471.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Aufgeben" />
+      <Button fx:id="giveUp" layoutX="471.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Aufgeben" />
       <Canvas height="352.0" layoutX="35.0" layoutY="25.0" width="423.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="300.0" layoutX="55.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="300.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="300.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="200.0" layoutX="105.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="200.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="200.0" layoutX="100.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="200.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="100.0" layoutX="155.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="100.0" layoutX="150.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Rectangle>
-      <Line endY="97.0" layoutX="205.0" layoutY="48.0" strokeWidth="3.0" />
-      <Line endY="97.0" layoutX="205.0" layoutY="245.0" strokeWidth="3.0" />
-      <Line endX="97.0" layoutX="255.0" layoutY="195.0" strokeWidth="3.0" />
-      <Line endX="97.0" layoutX="57.0" layoutY="195.0" strokeWidth="3.0" />
-      <Circle layoutX="56.0" layoutY="47.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="204.0" layoutY="47.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="354.0" layoutY="47.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="304.0" layoutY="97.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="205.0" layoutY="97.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="106.0" layoutY="97.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="106.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="56.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="56.0" layoutY="344.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="106.0" layoutY="294.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="204.0" layoutY="294.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="304.0" layoutY="294.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="155.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="155.0" layoutY="147.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="156.0" layoutY="245.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="205.0" layoutY="244.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="254.0" layoutY="244.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="204.0" layoutY="344.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="354.0" layoutY="344.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="304.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="354.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="254.0" layoutY="147.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="254.0" layoutY="195.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endY="100.0" layoutX="200.0" layoutY="50.0" strokeWidth="3.0" />
+      <Line endY="100" layoutX="200.0" layoutY="250.0" strokeWidth="3.0" />
+      <Line endX="100" layoutX="250.0" layoutY="200.0" strokeWidth="3.0" />
+      <Line endX="100.0" layoutX="50.0" layoutY="200.0" strokeWidth="3.0" />
+      <Circle layoutX="50" layoutY="50" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="50.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="350.0" layoutY="50.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="300.0" layoutY="100.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="100.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="100.0" layoutY="100.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="100.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="50.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="50.0" layoutY="350.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="100.0" layoutY="300.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="300.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="300.0" layoutY="300.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="150.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="150.0" layoutY="150.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="150.0" layoutY="250.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="250.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="250.0" layoutY="250.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="350.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="350.0" layoutY="350.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="300.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="350.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="250.0" layoutY="150.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="250.0" layoutY="200.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="200.0" layoutY="150.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Text fx:id="currentPlayer" layoutX="399.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" >
          <font>
             <Font name="Arial" size="20.0" />

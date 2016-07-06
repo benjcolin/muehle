@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
  */
 public class Controller1vs1 implements Initializable {
     private Stage onevsoneStage;
+    private Stage stage = new Stage();
 
     public Controller1vs1(Stage stage){
 
@@ -50,7 +51,7 @@ public class Controller1vs1 implements Initializable {
                 players.addPlayer(player1);
                 players.addPlayer(player2);
 
-                ControllerGame controllerGame = new ControllerGame(players);
+                ControllerGame controllerGame = new ControllerGame(players,stage);
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/game.fxml"));
                 Parent root = null;
@@ -59,7 +60,6 @@ public class Controller1vs1 implements Initializable {
                     onevsoneStage.close();
                     fxmlLoader.setController(controllerGame);
                     root = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
