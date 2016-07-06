@@ -1,12 +1,19 @@
 package sample.model;
+
+import java.awt.*;
+
 /**
  * Created by Benjamin on 28.06.2016.
  */
 public class Game {
     public Player player1;
     public Player player2;
+    private int numberOfPicesFromPlayer1onBoard;
+    private int numberOfPicesFromPlayer2onBoard;
 
     private Player currentPlayer;
+    private Piece[] piecesOfPlayer1 = new Piece[9];
+    private Piece[] piecesOfPlayer2 = new Piece[9];
 
     private Point[][] board = new Point[3][8];
 
@@ -14,6 +21,29 @@ public class Game {
         this.player1 = player1;
         this.player2 = player2;
         currentPlayer = player1;
+    }
+
+    public void getPiecesFromPlayer1(Piece piece){
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (board[i][j].getPiece().getColor() == Color.black){
+                    numberOfPicesFromPlayer1onBoard++;
+                }
+            }
+        }
+
+    }
+
+    public void getPiecesFromPlayer2(Piece piece){
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (board[i][j].getPiece().getColor() == Color.white){
+                    numberOfPicesFromPlayer2onBoard++;
+                }
+            }
+        }
+
+
     }
 
     //Prüfen ob der currentPlayer eine NEUE Mühle gebildet hat
