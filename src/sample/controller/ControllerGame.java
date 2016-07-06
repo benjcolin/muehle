@@ -14,6 +14,7 @@ import sample.model.Game;
 import sample.model.Point;
 import sample.model.Tournament;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,6 +79,9 @@ public class ControllerGame implements Initializable{
         }
         if (game.getNumberPiecesPlacedCurrentPlayer() < 9){
             game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
+        }
+        if (game.checkForMill()){
+            JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
         }
         game.changePlayer();
         actualizeScreen();

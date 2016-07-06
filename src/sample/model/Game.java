@@ -152,10 +152,12 @@ public class Game {
     private boolean checkSideMill(boolean mill){
         for(int side = 1; side < 8; side+=2){
             for (int i = 0; i < 3; i++) {
-                if(board[i][side].getPiece().getColor() == currentPlayer.getColor()
-                        && board[i][side].getPiece().getColor() == currentPlayer.getColor()
-                        && board[i][side].getPiece().getColor() == currentPlayer.getColor()){
-                    mill = true;
+                if(board[i][side].getPiece() != null) {
+                    if (board[i][side].getPiece().getColor() == currentPlayer.getColor()
+                            && board[i][side].getPiece().getColor() == currentPlayer.getColor()
+                            && board[i][side].getPiece().getColor() == currentPlayer.getColor()) {
+                        mill = true;
+                    }
                 }
             }
         }
@@ -164,10 +166,12 @@ public class Game {
 
     private boolean checkSector(int a, int b, int c, boolean mill){
         for (int i = 0; i < 3; i++) {
-            if (board[i][a].getPiece().getColor() == currentPlayer.getColor()
-                    && board[i][b].getPiece().getColor() == currentPlayer.getColor()
-                    && board[i][c].getPiece().getColor() == currentPlayer.getColor()) {
-                mill = true;
+            if(board[i][a].getPiece() != null && board[i][b].getPiece() != null && board[i][c].getPiece() != null){
+                if (board[i][a].getPiece().getColor() == currentPlayer.getColor()
+                        && board[i][b].getPiece().getColor() == currentPlayer.getColor()
+                        && board[i][c].getPiece().getColor() == currentPlayer.getColor()) {
+                    mill = true;
+                }
             }
         }
         return mill;
