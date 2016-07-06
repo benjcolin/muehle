@@ -5,8 +5,16 @@ package sample.model;
 public class Game {
     public Player player1;
     public Player player2;
-    private Player currentPlayer = player1;
+
+    private Player currentPlayer;
+
     private Point[][] board = new Point[3][8];
+
+    public Game(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+        currentPlayer = player1;
+    }
 
     //Prüfen ob der currentPlayer eine NEUE Mühle gebildet hat
     public boolean checkForMill() {
@@ -101,5 +109,9 @@ public class Game {
             }
         }
         return mill;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 }

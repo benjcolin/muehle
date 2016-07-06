@@ -1,6 +1,5 @@
 package sample.controller;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,28 +9,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.model.Player;
+import sample.model.Tournament;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * Created by Colin Hauri on 05.07.2016.
  */
 public class Controller1vs1 implements Initializable {
-    private Stage einsvseinsStage;
+    private Stage onevsoneStage;
 
     public Controller1vs1(Stage stage){
 
-        einsvseinsStage = stage;
+        onevsoneStage = stage;
     }
 
-    @FXML
-    private TextField spieler1Name;
-    @FXML
-    private TextField spieler2Name;
 
-
+    @FXML
+    private TextField player1Name;
+    @FXML
+    private TextField player2Name;
     @FXML
     private Button startButton;
 
@@ -39,10 +41,23 @@ public class Controller1vs1 implements Initializable {
         startButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
+
+                Tournament players = new Tournament();
+
+                Player player1 = new Player(Color.black, player1Name.getText());
+                Player player2 = new Player(Color.white, player2Name.getText());
+
+                players.addPlayer(player1);
+                players.addPlayer(player2);
+
+                ControllerGame controllerGame = new ControllerGame(players);
+
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/game.fxml"));
                 Parent root = null;
+
                 try {
-                    einsvseinsStage.close();
+                    onevsoneStage.close();
+                    fxmlLoader.setController(controllerGame);
                     root = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
