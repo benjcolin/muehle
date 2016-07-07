@@ -81,7 +81,7 @@ public class Game {
         mill = checkSector(4,5,6,mill); //BOTTOM
         mill = checkSector(6,7,0,mill); //LEFT
         //CHECK SIDE MILLS
-        checkSideMill(mill);
+        mill = checkSideMill(mill);
 
         return mill;
     }
@@ -118,7 +118,7 @@ public class Game {
         }
     }
 
-    public boolean allowedToRemovePiece(Piece piece) {
+    public boolean allowedToRemovePiece(Piece piece){
         if (piece.getColor() != currentPlayer.getColor()){
             return true;
         }else{
@@ -162,13 +162,11 @@ public class Game {
     //TOP = 1, LEFT = 3, RIGHT = 5, BOTTOM = 7
     private boolean checkSideMill(boolean mill){
         for(int side = 1; side < 8; side+=2){
-            for (int i = 0; i < 3; i++) {
-                if(board[i][side].getPiece() != null) {
-                    if (board[i][side].getPiece().getColor() == currentPlayer.getColor()
-                            && board[i][side].getPiece().getColor() == currentPlayer.getColor()
-                            && board[i][side].getPiece().getColor() == currentPlayer.getColor()) {
-                        mill = true;
-                    }
+            if(board[0][side].getPiece() != null && board[1][side].getPiece() != null && board[2][side].getPiece() != null) {
+                if (board[0][side].getPiece().getColor() == currentPlayer.getColor()
+                        && board[1][side].getPiece().getColor() == currentPlayer.getColor()
+                        && board[2][side].getPiece().getColor() == currentPlayer.getColor()) {
+                    mill = true;
                 }
             }
         }

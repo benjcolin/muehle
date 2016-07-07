@@ -23,9 +23,6 @@ import java.util.ResourceBundle;
  * Created by Colin Hauri on 05.07.2016.
  */
 public class ControllerGame implements Initializable{
-
-
-
     private Tournament tournament;
     private Game game;
     private Stage stage;
@@ -73,10 +70,10 @@ public class ControllerGame implements Initializable{
                 stage.close();
             }
         });
-
     }
 
     private void pointHandler(MouseEvent mouseEvent) {
+        boolean played = false;
         int row = 0;
         int col = 0;
         Circle c = (Circle) mouseEvent.getSource();
@@ -90,27 +87,23 @@ public class ControllerGame implements Initializable{
         }
         if (game.getNumberPiecesPlacedCurrentPlayer() < 9){
             game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
-            game.changePlayer();
-        }else if (selected != null && game.isOldPointNext(oldPoint,game.getPoint(row,col))){
+            played = true;
+        }else if (selected != null && ( game.isOldPointNext(oldPoint,game.getPoint(row,col)) || game.getNumberPiecesOnBoardCurrentPlayer() == 3)){
             if(selected.getColor() == game.getCurrentPlayer().getColor()){
                 game.movePiece(selected, game.getPoint(row, col));
-                game.changePlayer();
-            }
-        }else if (selected != null && game.getNumberPiecesOnBoardCurrentPlayer() == 3){
-            if(selected.getColor() == game.getCurrentPlayer().getColor()) {
-                game.movePiece(selected, game.getPoint(row, col));
-                game.changePlayer();
+                played = true;
             }
         }
-        if (game.checkForMill()){
-            JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
+        if(played){
+            if (game.checkForMill()){
+                JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
+            }
+            game.changePlayer();
         }
         actualizeScreen();
     }
 
     private void actualizeScreen() {
-
-
         player1NumberPieces = 9-game.getNumberPiecesPlacedPlayer1();
         player2NumberPieces = 9-game.getNumberPiecesPlacedPlayer2();
 
@@ -129,7 +122,6 @@ public class ControllerGame implements Initializable{
                 }
             }
         }
-
     }
 
     private void pieceHandler(MouseEvent mouseEvent) {
@@ -143,8 +135,6 @@ public class ControllerGame implements Initializable{
                 }
             }
         }
-
-
     }
 
     private void setPoints(){
@@ -301,7 +291,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <3 ; i++){
             pieces[0][counter] = new Circle();
             pieces[0][counter].setRadius(12);
-            pieces[0][counter].setFill(Color.BLACK);
             pieces[0][counter].setLayoutX(xAxis+(i*150));
             pieces[0][counter].setLayoutY(yAxis);
             pieces[0][counter].setVisible(false);
@@ -312,7 +301,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[0][counter] = new Circle();
             pieces[0][counter].setRadius(12);
-            pieces[0][counter].setFill(Color.BLACK);
             pieces[0][counter].setLayoutX(xAxis+(2*150));
             pieces[0][counter].setLayoutY(yAxis+((1+i)*150));
             pieces[0][counter].setVisible(false);
@@ -323,7 +311,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[0][counter] = new Circle();
             pieces[0][counter].setRadius(12);
-            pieces[0][counter].setFill(Color.BLACK);
             pieces[0][counter].setLayoutX(xAxis+(150 - (i*150)));
             pieces[0][counter].setLayoutY(yAxis+(2*150));
             pieces[0][counter].setVisible(false);
@@ -334,7 +321,6 @@ public class ControllerGame implements Initializable{
 
         pieces[0][counter] = new Circle();
         pieces[0][counter].setRadius(12);
-        pieces[0][counter].setFill(Color.BLACK);
         pieces[0][counter].setLayoutX(xAxis);
         pieces[0][counter].setLayoutY(yAxis+150);
         pieces[0][counter].setVisible(false);
@@ -348,7 +334,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <3 ; i++){
             pieces[1][counter] = new Circle();
             pieces[1][counter].setRadius(12);
-            pieces[1][counter].setFill(Color.BLACK);
             pieces[1][counter].setLayoutX(xAxis+(i*100));
             pieces[1][counter].setLayoutY(yAxis);
             pieces[1][counter].setVisible(false);
@@ -359,7 +344,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[1][counter] = new Circle();
             pieces[1][counter].setRadius(12);
-            pieces[1][counter].setFill(Color.BLACK);
             pieces[1][counter].setLayoutX(xAxis+(2*100));
             pieces[1][counter].setLayoutY(yAxis+((1+i)*100));
             pieces[1][counter].setVisible(false);
@@ -370,7 +354,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[1][counter] = new Circle();
             pieces[1][counter].setRadius(12);
-            pieces[1][counter].setFill(Color.BLACK);
             pieces[1][counter].setLayoutX(xAxis+(100 - (i*100)));
             pieces[1][counter].setLayoutY(yAxis+(2*100));
             pieces[1][counter].setVisible(false);
@@ -381,7 +364,6 @@ public class ControllerGame implements Initializable{
 
         pieces[1][counter] = new Circle();
         pieces[1][counter].setRadius(12);
-        pieces[1][counter].setFill(Color.BLACK);
         pieces[1][counter].setLayoutX(xAxis);
         pieces[1][counter].setLayoutY(yAxis+100);
         pieces[1][counter].setVisible(false);
@@ -395,7 +377,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <3 ; i++){
             pieces[2][counter] = new Circle();
             pieces[2][counter].setRadius(12);
-            pieces[2][counter].setFill(Color.BLACK);
             pieces[2][counter].setLayoutX(xAxis+(i*50));
             pieces[2][counter].setLayoutY(yAxis);
             pieces[2][counter].setVisible(false);
@@ -406,7 +387,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[2][counter] = new Circle();
             pieces[2][counter].setRadius(12);
-            pieces[2][counter].setFill(Color.BLACK);
             pieces[2][counter].setLayoutX(xAxis+(2*50));
             pieces[2][counter].setLayoutY(yAxis+((1+i)*50));
             pieces[2][counter].setVisible(false);
@@ -417,7 +397,6 @@ public class ControllerGame implements Initializable{
         for(int i = 0 ; i <2 ; i++){
             pieces[2][counter] = new Circle();
             pieces[2][counter].setRadius(12);
-            pieces[2][counter].setFill(Color.BLACK);
             pieces[2][counter].setLayoutX(xAxis+(50 - (i*50)));
             pieces[2][counter].setLayoutY(yAxis+(2*50));
             pieces[2][counter].setVisible(false);
@@ -428,13 +407,10 @@ public class ControllerGame implements Initializable{
 
         pieces[2][counter] = new Circle();
         pieces[2][counter].setRadius(12);
-        pieces[2][counter].setFill(Color.BLACK);
         pieces[2][counter].setLayoutX(xAxis);
         pieces[2][counter].setLayoutY(yAxis+50);
         pieces[2][counter].setVisible(false);
         pieces[2][counter].setOnMouseClicked(this::pieceHandler);
         pane.getChildren().add(pieces[2][counter]);
     }
-
-
 }
