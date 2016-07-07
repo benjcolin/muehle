@@ -64,7 +64,7 @@
       <Text layoutX="401.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl Spielsteine auf dem Feld:" />
       <Text fx:id="player1Name" layoutX="401.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0"   />
       <Text fx:id="player2Name" layoutX="401.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="2" />
-      <Text layoutX="510.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="3" />
-      <Text layoutX="511.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="4" />
+      <Text fx:id="player1NumberOfPieces" layoutX="510.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="3" />
+      <Text fx:id="player2NumberOfPieces" layoutX="511.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="4" />
    </children>
 </Pane>

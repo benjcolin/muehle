@@ -28,6 +28,8 @@ public class ControllerGame implements Initializable{
     private Stage stage;
     private Circle[][] board = new Circle[3][8];
     private Circle[][] pieces = new Circle[3][8];
+    private int player1NumberPieces;
+    private int player2NumberPieces;
 
     @FXML
     private Text player1Name;
@@ -39,6 +41,10 @@ public class ControllerGame implements Initializable{
     private Button giveUp;
     @FXML
     private Pane pane;
+    @FXML
+    private Text player1NumberOfPieces;
+    @FXML
+    private Text player2NumberOfPieces;
 
     public ControllerGame(Tournament tournament, Stage stage){
         this.tournament = tournament;
@@ -88,6 +94,14 @@ public class ControllerGame implements Initializable{
     }
 
     private void actualizeScreen() {
+
+
+        player1NumberPieces = 9-game.getNumberPiecesPlacedPlayer1();
+        player2NumberPieces = 9-game.getNumberPiecesPlacedPlayer2();
+
+        player1NumberOfPieces.setText("" + player1NumberPieces);
+        player2NumberOfPieces.setText("" + player2NumberPieces);
+
         currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
         Point[][] pointBoard = game.getBoard();
         for(int i = 0 ; i < 3 ; i++){

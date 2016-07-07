@@ -13,6 +13,7 @@ public class Game {
     private Player currentPlayer;
     private Piece[] piecesOfPlayer1 = new Piece[9];
     private Piece[] piecesOfPlayer2 = new Piece[9];
+
     private int numberPiecesPlacedPlayer1 = 0;
     private int numberPiecesPlacedPlayer2 = 0;
     private Point[][] board = new Point[3][8];
@@ -212,5 +213,13 @@ public class Game {
 
     public Point[][] getBoard() {
         return board;
+    }
+
+    public int getNumberPiecesPlacedPlayer1() {
+        return numberPiecesPlacedPlayer1;
+    }
+
+    public int getNumberPiecesPlacedPlayer2() {
+        return numberPiecesPlacedPlayer2;
     }
 }
