@@ -19,6 +19,8 @@ public class ControllerStart implements Initializable {
 
     @FXML
     private Button button1;
+    @FXML
+    private Button button2;
 
     public ControllerStart(Stage stage) {
         primaryStage = stage;
@@ -43,5 +45,26 @@ public class ControllerStart implements Initializable {
                 }
             }
         });
+
+        Controller1vsKI controller1vsKi = new Controller1vsKI(onevsoneStage);
+        button2.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/1vsKi.fxml"));
+                Parent root = null;
+                try {
+                    primaryStage.close();
+                    fxmlLoader.setController(controller1vsKi);
+                    root = (Parent) fxmlLoader.load();
+                    onevsoneStage.setScene(new Scene(root));
+                    onevsoneStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
+
+
 }

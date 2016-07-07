@@ -25,7 +25,7 @@
             </image>
         </ImageView>
         <Button fx:id="button1" layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1"/>
-        <Button layoutX="374.0" layoutY="308.0" mnemonicParsing="false" text="1 vs KI"/>
-        <Button layoutX="621.0" layoutY="308.0" mnemonicParsing="false" text="Turnier"/>
+        <Button fx:id="button2" layoutX="374.0" layoutY="308.0" mnemonicParsing="false" text="1 vs KI"/>
+        <Button fx:id="button3" layoutX="621.0" layoutY="308.0" mnemonicParsing="false" text="Turnier"/>
     </children>
 </Pane>
