@@ -183,6 +183,21 @@ public class ControllerGame implements Initializable {
         Player winner = game.checkForWin();
         if (winner != null) {
             JOptionPane.showMessageDialog(null, winner.getName() + " hat gewonnen!", "Sieg", JOptionPane.INFORMATION_MESSAGE);
+
+            ControllerStart controllerStart = new ControllerStart(stage);
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/start.fxml"));
+                Parent root = null;
+                try {
+                    stage.close();
+                    fxmlLoader.setController(controllerStart);
+                    root = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
         }
     }
 
