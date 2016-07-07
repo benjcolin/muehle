@@ -11,6 +11,9 @@ import java.util.Arrays;
  * Created by Benjamin on 28.06.2016.
  */
 public class Game {
+    public static int NORMAL = 0;
+    public static int NEWMILL = 10;
+    private int gameStatus = NORMAL;
     public Player player1;
     public Player player2;
     private Player currentPlayer;
@@ -90,13 +93,17 @@ public class Game {
         return mill;
     }
 
-    public void changeGameStatus() {
+    public void setGameStatus(int gameStatus) {
+        this.gameStatus = gameStatus;
+    }
 
+    public int getGameStatus() {
+        return gameStatus;
     }
 
     //Verschiebt den Spielstein
     public void movePiece(Piece piece, Point point) {
-        if (getNumberPiecesOnBoardCurrentPlayer() == 9) {
+        if (getNumberPiecesPlacedCurrentPlayer() == 9) {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (board[i][j].getPiece() == piece) {
@@ -114,11 +121,14 @@ public class Game {
         point.setPiece(piece);
     }
 
-    private void checkForWin() {
-        if (getNumberPiecesOnBoardPlayer1() < 3) {
-            JOptionPane.showMessageDialog(null, player2.getName(), "Sieg", JOptionPane.INFORMATION_MESSAGE);
-        } else if (getNumberPiecesOnBoardPlayer2() < 3) {
-            JOptionPane.showMessageDialog(null, player1.getName(), "Sieg", JOptionPane.INFORMATION_MESSAGE);
+    //Wenn ein Spieler gewonnen hat kommt der Spieler zurück sonst null
+    public Player checkForWin() {
+        if ((getNumberPiecesOnBoardPlayer1() + (9 - numberPiecesPlacedPlayer1)) < 3) {
+            return player2;
+        } else if ((getNumberPiecesOnBoardPlayer2() + (9 - numberPiecesPlacedPlayer2)) < 3) {
+            return player1;
+        }else{
+            return null;
         }
     }
 

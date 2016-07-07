@@ -10,10 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sample.model.Game;
-import sample.model.Piece;
-import sample.model.Point;
-import sample.model.Tournament;
+import sample.model.*;
 
 import javax.swing.*;
 import java.net.URL;
@@ -28,8 +25,6 @@ public class ControllerGame implements Initializable{
     private Stage stage;
     private Circle[][] board = new Circle[3][8];
     private Circle[][] pieces = new Circle[3][8];
-    private int player1NumberPieces;
-    private int player2NumberPieces;
     private Piece selected = new Piece(Color.WHITE);
     private Point oldPoint = new Point();
 
@@ -96,21 +91,51 @@ public class ControllerGame implements Initializable{
         }
         if(played){
             if (game.checkForMill()){
-                JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Du hast eine Mühle gebildet.", "Mühle", JOptionPane.INFORMATION_MESSAGE);
+                game.setGameStatus(game.NEWMILL);
+            }else{
+                game.changePlayer();
             }
-            game.changePlayer();
         }
         actualizeScreen();
     }
 
+    private void pieceHandler(MouseEvent mouseEvent) {
+        Circle c = (Circle) mouseEvent.getSource();
+        if(game.getGameStatus() == 0) {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if (pieces[i][j] == c) {
+                        selected = game.getBoard()[i][j].getPiece();
+                        oldPoint = game.getPoint(i, j);
+                    }
+                }
+            }
+        }else{
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if (pieces[i][j] == c) {
+                        if(game.getBoard()[i][j].getPiece().getColor() != game.getCurrentPlayer().getColor()){
+                            game.getBoard()[i][j].removePiece();
+                            game.setGameStatus(game.NORMAL);
+                            game.changePlayer();
+                        }
+                    }
+                }
+            }
+            actualizeScreen();
+        }
+    }
+
     private void actualizeScreen() {
-        player1NumberPieces = 9-game.getNumberPiecesPlacedPlayer1();
-        player2NumberPieces = 9-game.getNumberPiecesPlacedPlayer2();
+        player1NumberOfPieces.setText("" + (9-game.getNumberPiecesPlacedPlayer1()));
+        player2NumberOfPieces.setText("" + (9-game.getNumberPiecesPlacedPlayer2()));
 
-        player1NumberOfPieces.setText("" + player1NumberPieces);
-        player2NumberOfPieces.setText("" + player2NumberPieces);
-
-        currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
+        if (game.getGameStatus() == game.NORMAL){
+            currentPlayer.setText(game.getCurrentPlayer().getName()+ " ist am Zug");
+        }else{
+            currentPlayer.setText("Stein zum entfernen\nauswählen.");
+        }
         Point[][] pointBoard = game.getBoard();
         for(int i = 0 ; i < 3 ; i++){
             for(int j = 0; j < 8; j++){
@@ -122,18 +147,9 @@ public class ControllerGame implements Initializable{
                 }
             }
         }
-    }
-
-    private void pieceHandler(MouseEvent mouseEvent) {
-
-        Circle c = (Circle) mouseEvent.getSource();
-        for(int i = 0 ; i < 3 ; i++){
-            for(int j = 0; j < 8; j++){
-                if (pieces[i][j] == c){
-                    selected = game.getBoard()[i][j].getPiece();
-                    oldPoint = game.getPoint(i,j);
-                }
-            }
+        Player winner = game.checkForWin();
+        if(winner != null){
+            JOptionPane.showMessageDialog(null, winner.getName() + " hat gewonnen!", "Sieg", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
