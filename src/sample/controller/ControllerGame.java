@@ -92,6 +92,8 @@ public class ControllerGame implements Initializable{
             game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
         }else if (selected != null && game.isOldPointNext(oldPoint,game.getPoint(row,col))){
             game.movePiece(selected, game.getPoint(row, col));
+        }else if (selected != null && game.getNumberPiecesOnBoardCurrentPlayer() == 3){
+            game.movePiece(selected, game.getPoint(row,col));
         }
         if (game.checkForMill()){
             JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
