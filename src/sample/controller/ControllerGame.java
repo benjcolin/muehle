@@ -90,15 +90,21 @@ public class ControllerGame implements Initializable{
         }
         if (game.getNumberPiecesPlacedCurrentPlayer() < 9){
             game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
+            game.changePlayer();
         }else if (selected != null && game.isOldPointNext(oldPoint,game.getPoint(row,col))){
-            game.movePiece(selected, game.getPoint(row, col));
+            if(selected.getColor() == game.getCurrentPlayer().getColor()){
+                game.movePiece(selected, game.getPoint(row, col));
+                game.changePlayer();
+            }
         }else if (selected != null && game.getNumberPiecesOnBoardCurrentPlayer() == 3){
-            game.movePiece(selected, game.getPoint(row,col));
+            if(selected.getColor() == game.getCurrentPlayer().getColor()) {
+                game.movePiece(selected, game.getPoint(row, col));
+                game.changePlayer();
+            }
         }
         if (game.checkForMill()){
             JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
         }
-        game.changePlayer();
         actualizeScreen();
     }
 
@@ -174,7 +180,7 @@ public class ControllerGame implements Initializable{
             board[0][counter] = new Circle();
             board[0][counter].setRadius(radius);
             board[0][counter].setFill(Color.BLACK);
-            board[0][counter].setLayoutX(xAxis+(i*150));
+            board[0][counter].setLayoutX(xAxis+(150 - (i * 150)));
             board[0][counter].setLayoutY(yAxis+(2*150));
             board[0][counter].setVisible(true);
             board[0][counter].setOnMouseClicked(this::pointHandler);
@@ -221,7 +227,7 @@ public class ControllerGame implements Initializable{
             board[1][counter] = new Circle();
             board[1][counter].setRadius(radius);
             board[1][counter].setFill(Color.BLACK);
-            board[1][counter].setLayoutX(xAxis+(i*100));
+            board[1][counter].setLayoutX(xAxis+(100 - (i*100)));
             board[1][counter].setLayoutY(yAxis+(2*100));
             board[1][counter].setVisible(true);
             board[1][counter].setOnMouseClicked(this::pointHandler);
@@ -268,7 +274,7 @@ public class ControllerGame implements Initializable{
             board[2][counter] = new Circle();
             board[2][counter].setRadius(radius);
             board[2][counter].setFill(Color.BLACK);
-            board[2][counter].setLayoutX(xAxis+(i*50));
+            board[2][counter].setLayoutX(xAxis+(50 - (i*50)));
             board[2][counter].setLayoutY(yAxis+(2*50));
             board[2][counter].setVisible(true);
             board[2][counter].setOnMouseClicked(this::pointHandler);
@@ -318,7 +324,7 @@ public class ControllerGame implements Initializable{
             pieces[0][counter] = new Circle();
             pieces[0][counter].setRadius(12);
             pieces[0][counter].setFill(Color.BLACK);
-            pieces[0][counter].setLayoutX(xAxis+(i*150));
+            pieces[0][counter].setLayoutX(xAxis+(150 - (i*150)));
             pieces[0][counter].setLayoutY(yAxis+(2*150));
             pieces[0][counter].setVisible(false);
             pieces[0][counter].setOnMouseClicked(this::pieceHandler);
@@ -365,7 +371,7 @@ public class ControllerGame implements Initializable{
             pieces[1][counter] = new Circle();
             pieces[1][counter].setRadius(12);
             pieces[1][counter].setFill(Color.BLACK);
-            pieces[1][counter].setLayoutX(xAxis+(i*100));
+            pieces[1][counter].setLayoutX(xAxis+(100 - (i*100)));
             pieces[1][counter].setLayoutY(yAxis+(2*100));
             pieces[1][counter].setVisible(false);
             pieces[1][counter].setOnMouseClicked(this::pieceHandler);
@@ -412,7 +418,7 @@ public class ControllerGame implements Initializable{
             pieces[2][counter] = new Circle();
             pieces[2][counter].setRadius(12);
             pieces[2][counter].setFill(Color.BLACK);
-            pieces[2][counter].setLayoutX(xAxis+(i*50));
+            pieces[2][counter].setLayoutX(xAxis+(50 - (i*50)));
             pieces[2][counter].setLayoutY(yAxis+(2*50));
             pieces[2][counter].setVisible(false);
             pieces[2][counter].setOnMouseClicked(this::pieceHandler);

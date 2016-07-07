@@ -146,7 +146,7 @@ public class Game {
         }
 
         if(Math.abs(oldRow - newRow) == 0){
-            if (Math.abs(oldCol - oldRow) == 1 || Math.abs(oldCol - oldRow) == 7 ){
+            if (Math.abs(oldCol - newCol) == 1 || Math.abs(oldCol - newCol) == 7 ){
                 //Auf dem gleichen Quadrat und direkt nebeneinander
                 oldPointNext = true;
             }

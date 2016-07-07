@@ -61,7 +61,7 @@
             <Font name="Arial" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="401.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl Spielsteine auf dem Feld:" />
+      <Text layoutX="401.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl noch nicht gesetzte Spielsteine:" />
       <Text fx:id="player1Name" layoutX="401.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0"   />
       <Text fx:id="player2Name" layoutX="401.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="2" />
       <Text fx:id="player1NumberOfPieces" layoutX="510.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="3" />
