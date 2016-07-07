@@ -2,6 +2,7 @@ package sample.model;
 
 import javafx.scene.paint.Color;
 
+import javax.swing.*;
 import java.util.Arrays;
 
 /**
@@ -81,6 +82,7 @@ public class Game {
         mill = checkSector(6,7,0,mill); //LEFT
         //CHECK SIDE MILLS
         checkSideMill(mill);
+
         return mill;
     }
 
@@ -106,6 +108,14 @@ public class Game {
             }
         }
         point.setPiece(piece);
+    }
+
+    private void checkForWin(){
+        if(getNumberPiecesOnBoardPlayer1() < 3){
+            JOptionPane.showMessageDialog(null, player2.getName(), "Sieg", JOptionPane.INFORMATION_MESSAGE);
+        }else if(getNumberPiecesOnBoardPlayer2() < 3){
+            JOptionPane.showMessageDialog(null, player1.getName(), "Sieg", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     public boolean allowedToRemovePiece(Piece piece) {

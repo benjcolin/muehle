@@ -11,6 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.model.Game;
+import sample.model.Piece;
 import sample.model.Point;
 import sample.model.Tournament;
 
@@ -23,6 +24,8 @@ import java.util.ResourceBundle;
  */
 public class ControllerGame implements Initializable{
 
+
+
     private Tournament tournament;
     private Game game;
     private Stage stage;
@@ -30,6 +33,8 @@ public class ControllerGame implements Initializable{
     private Circle[][] pieces = new Circle[3][8];
     private int player1NumberPieces;
     private int player2NumberPieces;
+    private Piece selected = new Piece(Color.WHITE);
+    private Point oldPoint = new Point();
 
     @FXML
     private Text player1Name;
@@ -85,6 +90,8 @@ public class ControllerGame implements Initializable{
         }
         if (game.getNumberPiecesPlacedCurrentPlayer() < 9){
             game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
+        }else if (selected != null && game.isOldPointNext(oldPoint,game.getPoint(row,col))){
+            game.movePiece(selected, game.getPoint(row, col));
         }
         if (game.checkForMill()){
             JOptionPane.showMessageDialog(null, "Mühle gebildet", "Titel", JOptionPane.INFORMATION_MESSAGE);
@@ -114,10 +121,22 @@ public class ControllerGame implements Initializable{
                 }
             }
         }
+
     }
 
     private void pieceHandler(MouseEvent mouseEvent) {
+
         Circle c = (Circle) mouseEvent.getSource();
+        for(int i = 0 ; i < 3 ; i++){
+            for(int j = 0; j < 8; j++){
+                if (pieces[i][j] == c){
+                    selected = game.getBoard()[i][j].getPiece();
+                    oldPoint = game.getPoint(i,j);
+                }
+            }
+        }
+
+
     }
 
     private void setPoints(){
@@ -408,4 +427,6 @@ public class ControllerGame implements Initializable{
         pieces[2][counter].setOnMouseClicked(this::pieceHandler);
         pane.getChildren().add(pieces[2][counter]);
     }
+
+
 }
