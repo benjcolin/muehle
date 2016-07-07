@@ -10,7 +10,7 @@ import sample.controller.ControllerStart;
 public class View extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         ControllerStart controllerStart = new ControllerStart(primaryStage);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/start.fxml"));
         fxmlLoader.setController(controllerStart);

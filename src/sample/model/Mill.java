@@ -11,7 +11,7 @@ public class Mill {
     private int cRow;
     private int cCol;
 
-    public Mill(int aRow, int aCol, int bRow, int bCol, int cRow, int cCol){
+    public Mill(int aRow, int aCol, int bRow, int bCol, int cRow, int cCol) {
         this.aRow = aRow;
         this.aCol = aCol;
         this.bRow = bRow;

@@ -121,13 +121,13 @@ public class Game {
         point.setPiece(piece);
     }
 
-    //Wenn ein Spieler gewonnen hat kommt der Spieler zurück sonst null
+    //Wenn ein Spieler gewonnen hat wird der Spieler zurückgegeben sonst "null"
     public Player checkForWin() {
         if ((getNumberPiecesOnBoardPlayer1() + (9 - numberPiecesPlacedPlayer1)) < 3) {
             return player2;
         } else if ((getNumberPiecesOnBoardPlayer2() + (9 - numberPiecesPlacedPlayer2)) < 3) {
             return player1;
-        }else{
+        } else {
             return null;
         }
     }
@@ -181,7 +181,7 @@ public class Game {
                         && board[1][side].getPiece().getColor() == currentPlayer.getColor()
                         && board[2][side].getPiece().getColor() == currentPlayer.getColor()) {
                     Mill m = new Mill(0, side, 1, side, 2, side);
-                    if(!existMill(m)){
+                    if (!existMill(m)) {
                         mills.add(m);
                         mill = true;
                     }
@@ -198,7 +198,7 @@ public class Game {
                         && board[i][b].getPiece().getColor() == currentPlayer.getColor()
                         && board[i][c].getPiece().getColor() == currentPlayer.getColor()) {
                     Mill m = new Mill(i, a, i, b, i, c);
-                    if(!existMill(m)){
+                    if (!existMill(m)) {
                         mills.add(m);
                         mill = true;
                     }
@@ -216,7 +216,7 @@ public class Game {
                     && m.getbRow() == mill.getbRow()
                     && m.getbCol() == mill.getbCol()
                     && m.getcRow() == mill.getcRow()
-                    && m.getcCol() == mill.getcCol()){
+                    && m.getcCol() == mill.getcCol()) {
                 exist = true;
             }
         }
@@ -225,19 +225,19 @@ public class Game {
 
     private void cleanOldMills() {
         ArrayList<Integer> delete = new ArrayList<>();
-        for (Mill m : mills){
-            if(board[m.getaRow()][m.getaCol()].getPiece() != null && board[m.getbRow()][m.getbCol()].getPiece() != null && board[m.getcRow()][m.getcCol()].getPiece() != null){
+        for (Mill m : mills) {
+            if (board[m.getaRow()][m.getaCol()].getPiece() != null && board[m.getbRow()][m.getbCol()].getPiece() != null && board[m.getcRow()][m.getcCol()].getPiece() != null) {
                 if (board[m.getaRow()][m.getaCol()].getPiece().getColor() == board[m.getbRow()][m.getbCol()].getPiece().getColor()
-                        && board[m.getbRow()][m.getbCol()].getPiece().getColor() == board[m.getcRow()][m.getcCol()].getPiece().getColor()){
+                        && board[m.getbRow()][m.getbCol()].getPiece().getColor() == board[m.getcRow()][m.getcCol()].getPiece().getColor()) {
                     //Mühle existiert immer noch
-                }else{
+                } else {
                     delete.add(mills.indexOf(m));
                 }
-            }else{
+            } else {
                 delete.add(mills.indexOf(m));
             }
         }
-        for(int i = delete.size()-1; i >= 0; i--){
+        for (int i = delete.size() - 1; i >= 0; i--) {
             mills.remove(delete.get(i).intValue());
         }
     }

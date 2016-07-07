@@ -13,18 +13,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerStart implements Initializable{
+public class ControllerStart implements Initializable {
     private Stage primaryStage;
     private Stage onevsoneStage = new Stage();
-
-    public ControllerStart(Stage stage){
-
-        primaryStage = stage;
-    }
 
     @FXML
     private Button button1;
 
+    public ControllerStart(Stage stage) {
+        primaryStage = stage;
+    }
 
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         Controller1vs1 controller1vs1 = new Controller1vs1(onevsoneStage);
@@ -45,7 +43,5 @@ public class ControllerStart implements Initializable{
                 }
             }
         });
-
-
     }
 }

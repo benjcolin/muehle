@@ -25,11 +25,9 @@ public class Controller1vs1 implements Initializable {
     private Stage onevsoneStage;
     private Stage stage = new Stage();
 
-    public Controller1vs1(Stage stage){
-
+    public Controller1vs1(Stage stage) {
         onevsoneStage = stage;
     }
-
 
     @FXML
     private TextField player1Name;
@@ -51,7 +49,7 @@ public class Controller1vs1 implements Initializable {
                 players.addPlayer(player1);
                 players.addPlayer(player2);
 
-                ControllerGame controllerGame = new ControllerGame(players,stage);
+                ControllerGame controllerGame = new ControllerGame(players, stage);
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/game.fxml"));
                 Parent root = null;

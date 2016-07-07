@@ -9,7 +9,7 @@ public class Piece {
     private Boolean selected;
     private Color color;
 
-    public Piece(Color color){
+    public Piece(Color color) {
         this.color = color;
     }
 

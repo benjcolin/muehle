@@ -11,20 +11,21 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
-   <children>
-      <Text layoutX="333.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mühle">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="166.0" fitWidth="279.0" layoutX="261.0" layoutY="97.0">
-         <image>
-            <Image url="@../../Bild2.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="button1" layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1" />
-      <Button layoutX="374.0" layoutY="308.0" mnemonicParsing="false" text="1 vs KI" />
-      <Button layoutX="621.0" layoutY="308.0" mnemonicParsing="false" text="Turnier" />
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text layoutX="333.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mühle">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Text>
+        <ImageView fitHeight="166.0" fitWidth="279.0" layoutX="261.0" layoutY="97.0">
+            <image>
+                <Image url="@../../Bild2.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="button1" layoutX="114.0" layoutY="308.0" mnemonicParsing="false" text="1 vs 1"/>
+        <Button layoutX="374.0" layoutY="308.0" mnemonicParsing="false" text="1 vs KI"/>
+        <Button layoutX="621.0" layoutY="308.0" mnemonicParsing="false" text="Turnier"/>
+    </children>
 </Pane>

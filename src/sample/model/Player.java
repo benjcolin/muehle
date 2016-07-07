@@ -7,10 +7,9 @@ import javafx.scene.paint.Color;
  */
 public class Player {
     private String name;
-
     private Color color;
 
-    public Player(Color color, String name){
+    public Player(Color color, String name) {
         this.name = name;
         this.color = color;
     }

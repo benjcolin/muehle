@@ -7,38 +7,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="giveUp" layoutX="471.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Aufgeben" />
-      <Canvas height="352.0" layoutX="35.0" layoutY="25.0" width="423.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="300.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="200.0" layoutX="100.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="200.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="100.0" layoutX="150.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Rectangle>
-      <Line endY="100.0" layoutX="200.0" layoutY="50.0" strokeWidth="3.0" />
-      <Line endY="100" layoutX="200.0" layoutY="250.0" strokeWidth="3.0" />
-      <Line endX="100" layoutX="250.0" layoutY="200.0" strokeWidth="3.0" />
-      <Line endX="100.0" layoutX="50.0" layoutY="200.0" strokeWidth="3.0" />
-      <Text fx:id="currentPlayer" layoutX="399.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" >
-         <font>
-            <Font name="Arial" size="20.0" />
-         </font>
-      </Text>
-      <Text layoutX="401.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl noch nicht gesetzter&#10;Spielsteine:" />
-      <Text fx:id="player1Name" layoutX="401.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0"   />
-      <Text fx:id="player2Name" layoutX="401.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="2" />
-      <Text fx:id="player1NumberOfPieces" layoutX="550.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="3" />
-      <Text fx:id="player2NumberOfPieces" layoutX="550.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="4" />
-   </children>
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="giveUp" layoutX="471.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="78.0" text="Aufgeben"/>
+        <Canvas height="352.0" layoutX="35.0" layoutY="25.0" width="423.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="300.0" layoutX="50.0" layoutY="50.0"
+                   stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="300.0">
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+        </Rectangle>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="200.0" layoutX="100.0" layoutY="100.0"
+                   stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="200.0">
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+        </Rectangle>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="100.0" layoutX="150.0" layoutY="150.0"
+                   stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0">
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+        </Rectangle>
+        <Line endY="100.0" layoutX="200.0" layoutY="50.0" strokeWidth="3.0"/>
+        <Line endY="100" layoutX="200.0" layoutY="250.0" strokeWidth="3.0"/>
+        <Line endX="100" layoutX="250.0" layoutY="200.0" strokeWidth="3.0"/>
+        <Line endX="100.0" layoutX="50.0" layoutY="200.0" strokeWidth="3.0"/>
+        <Text fx:id="currentPlayer" layoutX="399.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font name="Arial" size="20.0"/>
+            </font>
+        </Text>
+        <Text layoutX="401.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Anzahl noch nicht gesetzter&#10;Spielsteine:"/>
+        <Text fx:id="player1Name" layoutX="401.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+        <Text fx:id="player2Name" layoutX="401.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2"/>
+        <Text fx:id="player1NumberOfPieces" layoutX="550.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="3"/>
+        <Text fx:id="player2NumberOfPieces" layoutX="550.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="4"/>
+    </children>
 </Pane>
