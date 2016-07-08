@@ -216,7 +216,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 3; i++) {
             board[0][counter] = new Circle();
             board[0][counter].setRadius(radius);
-            board[0][counter].setFill(Color.GRAY);
+            board[0][counter].setFill(Color.BROWN);
             board[0][counter].setLayoutX(xAxis + (i * 150));
             board[0][counter].setLayoutY(yAxis);
             board[0][counter].setVisible(true);
@@ -227,7 +227,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[0][counter] = new Circle();
             board[0][counter].setRadius(radius);
-            board[0][counter].setFill(Color.GRAY);
+            board[0][counter].setFill(Color.BROWN);
             board[0][counter].setLayoutX(xAxis + (2 * 150));
             board[0][counter].setLayoutY(yAxis + ((1 + i) * 150));
             board[0][counter].setVisible(true);
@@ -238,7 +238,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[0][counter] = new Circle();
             board[0][counter].setRadius(radius);
-            board[0][counter].setFill(Color.GRAY);
+            board[0][counter].setFill(Color.BROWN);
             board[0][counter].setLayoutX(xAxis + (150 - (i * 150)));
             board[0][counter].setLayoutY(yAxis + (2 * 150));
             board[0][counter].setVisible(true);
@@ -249,7 +249,7 @@ public class ControllerGame implements Initializable {
 
         board[0][counter] = new Circle();
         board[0][counter].setRadius(radius);
-        board[0][counter].setFill(Color.GRAY);
+        board[0][counter].setFill(Color.BROWN);
         board[0][counter].setLayoutX(xAxis);
         board[0][counter].setLayoutY(yAxis + 150);
         board[0][counter].setVisible(true);
@@ -263,7 +263,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 3; i++) {
             board[1][counter] = new Circle();
             board[1][counter].setRadius(radius);
-            board[1][counter].setFill(Color.GRAY);
+            board[1][counter].setFill(Color.BROWN);
             board[1][counter].setLayoutX(xAxis + (i * 100));
             board[1][counter].setLayoutY(yAxis);
             board[1][counter].setVisible(true);
@@ -274,7 +274,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[1][counter] = new Circle();
             board[1][counter].setRadius(radius);
-            board[1][counter].setFill(Color.GRAY);
+            board[1][counter].setFill(Color.BROWN);
             board[1][counter].setLayoutX(xAxis + (2 * 100));
             board[1][counter].setLayoutY(yAxis + ((1 + i) * 100));
             board[1][counter].setVisible(true);
@@ -285,7 +285,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[1][counter] = new Circle();
             board[1][counter].setRadius(radius);
-            board[1][counter].setFill(Color.GRAY);
+            board[1][counter].setFill(Color.BROWN);
             board[1][counter].setLayoutX(xAxis + (100 - (i * 100)));
             board[1][counter].setLayoutY(yAxis + (2 * 100));
             board[1][counter].setVisible(true);
@@ -296,7 +296,7 @@ public class ControllerGame implements Initializable {
 
         board[1][counter] = new Circle();
         board[1][counter].setRadius(radius);
-        board[1][counter].setFill(Color.GRAY);
+        board[1][counter].setFill(Color.BROWN);
         board[1][counter].setLayoutX(xAxis);
         board[1][counter].setLayoutY(yAxis + 100);
         board[1][counter].setVisible(true);
@@ -310,7 +310,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 3; i++) {
             board[2][counter] = new Circle();
             board[2][counter].setRadius(radius);
-            board[2][counter].setFill(Color.GRAY);
+            board[2][counter].setFill(Color.BROWN);
             board[2][counter].setLayoutX(xAxis + (i * 50));
             board[2][counter].setLayoutY(yAxis);
             board[2][counter].setVisible(true);
@@ -321,7 +321,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[2][counter] = new Circle();
             board[2][counter].setRadius(radius);
-            board[2][counter].setFill(Color.GRAY);
+            board[2][counter].setFill(Color.BROWN);
             board[2][counter].setLayoutX(xAxis + (2 * 50));
             board[2][counter].setLayoutY(yAxis + ((1 + i) * 50));
             board[2][counter].setVisible(true);
@@ -332,7 +332,7 @@ public class ControllerGame implements Initializable {
         for (int i = 0; i < 2; i++) {
             board[2][counter] = new Circle();
             board[2][counter].setRadius(radius);
-            board[2][counter].setFill(Color.GRAY);
+            board[2][counter].setFill(Color.BROWN);
             board[2][counter].setLayoutX(xAxis + (50 - (i * 50)));
             board[2][counter].setLayoutY(yAxis + (2 * 50));
             board[2][counter].setVisible(true);
@@ -343,7 +343,7 @@ public class ControllerGame implements Initializable {
 
         board[2][counter] = new Circle();
         board[2][counter].setRadius(radius);
-        board[2][counter].setFill(Color.GRAY);
+        board[2][counter].setFill(Color.BROWN);
         board[2][counter].setLayoutX(xAxis);
         board[2][counter].setLayoutY(yAxis + 50);
         board[2][counter].setVisible(true);
