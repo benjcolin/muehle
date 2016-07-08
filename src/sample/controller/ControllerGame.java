@@ -86,7 +86,7 @@ public class ControllerGame implements Initializable {
                 try {
                     stage.close();
                     fxmlLoader.setController(controllerStart);
-                    root = (Parent) fxmlLoader.load();
+                    root = fxmlLoader.load();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
@@ -110,7 +110,7 @@ public class ControllerGame implements Initializable {
                 }
             }
         }
-        if(game.getGameStatus() == game.NORMAL) {
+        if(game.getGameStatus() == Game.NORMAL) {
             if (game.getNumberPiecesPlacedCurrentPlayer() < 9) {
                 game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
                 played = true;
@@ -126,7 +126,7 @@ public class ControllerGame implements Initializable {
                     millMessage.setVisible(true);
                     millMessage.setStroke(Color.RED);
                     millMessage.setText("Du hast eine Mühle gebildet");
-                    game.setGameStatus(game.NEWMILL);
+                    game.setGameStatus(Game.NEWMILL);
                 } else {
                     game.changePlayer();
                     //millMessage.setVisible(false);
@@ -143,7 +143,7 @@ public class ControllerGame implements Initializable {
         int countMills = 0;
 
         Circle c = (Circle) mouseEvent.getSource();
-        if (game.getGameStatus() == game.NORMAL) {
+        if (game.getGameStatus() == Game.NORMAL) {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (pieces[i][j] == c) {
@@ -163,7 +163,7 @@ public class ControllerGame implements Initializable {
                                 game.getBoard()[i][j].removePiece();
                                 game.cleanOldMills();
                                 millMessage.setVisible(false);
-                                game.setGameStatus(game.NORMAL);
+                                game.setGameStatus(Game.NORMAL);
                                 game.changePlayer();
                             }
                         }
@@ -178,7 +178,7 @@ public class ControllerGame implements Initializable {
         player1NumberOfPieces.setText("" + (9 - game.getNumberPiecesPlacedPlayer1()));
         player2NumberOfPieces.setText("" + (9 - game.getNumberPiecesPlacedPlayer2()));
 
-        if (game.getGameStatus() == game.NORMAL) {
+        if (game.getGameStatus() == Game.NORMAL) {
             currentPlayer.setText(game.getCurrentPlayer().getName() + " ist am Zug");
         } else {
             currentPlayer.setText("Stein zum entfernen\nauswählen.");
@@ -206,7 +206,7 @@ public class ControllerGame implements Initializable {
                 try {
                     stage.close();
                     fxmlLoader.setController(controllerStart);
-                    root = (Parent) fxmlLoader.load();
+                    root = fxmlLoader.load();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {

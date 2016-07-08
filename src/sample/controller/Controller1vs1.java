@@ -57,7 +57,7 @@ public class Controller1vs1 implements Initializable {
                 try {
                     onevsoneStage.close();
                     fxmlLoader.setController(controllerGame);
-                    root = (Parent) fxmlLoader.load();
+                    root = fxmlLoader.load();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {

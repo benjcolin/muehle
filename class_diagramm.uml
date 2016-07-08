@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>sample</OriginalElement>
+  <nodes>
+    <node x="-407.77777777777777" y="801.0">sample.controller.Controller1vsKI</node>
+    <node x="329.361111111111" y="500.05555555555554">sample.model.Point</node>
+    <node x="849.8611111111111" y="441.52777777777777">sample.model.Mill</node>
+    <node x="637.8888888888888" y="722.0">sample.model.Player</node>
+    <node x="512.0" y="0.0">sample.model.Game</node>
+    <node x="300.41666666666663" y="254.08333333333326">sample.model.Piece</node>
+    <node x="-613.1111111111112" y="619.4444444444445">sample.controller.ControllerStart</node>
+    <node x="-292.8888888888888" y="583.888888888889">sample.controller.Controller1vs1</node>
+    <node x="-458.88888888888886" y="50.0">sample.controller.ControllerGame</node>
+    <node x="-68.11111111111097" y="472.0">sample.model.Tournament</node>
+    <node x="-245.44444444444446" y="775.4444444444445">sample.view.View</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sample.controller.ControllerGame" target="sample.model.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerGame" target="sample.model.Tournament">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Game" target="sample.model.Mill">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.Controller1vs1" target="sample.controller.ControllerGame">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerGame" target="sample.model.Point">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.Controller1vs1" target="sample.model.Tournament">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Game" target="sample.model.Point">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.Controller1vs1" target="sample.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerStart" target="sample.controller.Controller1vs1">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerGame" target="sample.controller.ControllerStart">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Point" target="sample.model.Piece">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Game" target="sample.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerStart" target="sample.controller.Controller1vsKI">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Game" target="sample.model.Piece">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.model.Tournament" target="sample.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.controller.ControllerGame" target="sample.model.Piece">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sample.view.View" target="sample.controller.ControllerStart">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="217.0" y="378.75" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

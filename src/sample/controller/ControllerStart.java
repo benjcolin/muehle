@@ -37,7 +37,7 @@ public class ControllerStart implements Initializable {
                 try {
                     primaryStage.close();
                     fxmlLoader.setController(controller1vs1);
-                    root = (Parent) fxmlLoader.load();
+                    root = fxmlLoader.load();
                     onevsoneStage.setScene(new Scene(root));
                     onevsoneStage.show();
                 } catch (IOException e) {
@@ -56,7 +56,7 @@ public class ControllerStart implements Initializable {
                 try {
                     primaryStage.close();
                     fxmlLoader.setController(controller1vsKi);
-                    root = (Parent) fxmlLoader.load();
+                    root = fxmlLoader.load();
                     onevsoneStage.setScene(new Scene(root));
                     onevsoneStage.show();
                 } catch (IOException e) {

@@ -133,11 +133,7 @@ public class Game {
     }
 
     public boolean allowedToRemovePiece(Piece piece) {
-        if (piece.getColor() != currentPlayer.getColor()) {
-            return true;
-        } else {
-            return false;
-        }
+        return piece.getColor() != currentPlayer.getColor();
     }
 
     //Prüft ob die Position, von der verschoben wurde neben der neuen Position ist
