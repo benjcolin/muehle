@@ -129,7 +129,7 @@ public class ControllerGame implements Initializable {
                     game.setGameStatus(game.NEWMILL);
                 } else {
                     game.changePlayer();
-                    millMessage.setVisible(false);
+                    //millMessage.setVisible(false);
                 }
             }
         }
@@ -138,7 +138,7 @@ public class ControllerGame implements Initializable {
 
     private void pieceHandler(MouseEvent mouseEvent) {
         Circle c = (Circle) mouseEvent.getSource();
-        if (game.getGameStatus() == 0) {
+        if (game.getGameStatus() == game.NORMAL) {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (pieces[i][j] == c) {
@@ -153,6 +153,7 @@ public class ControllerGame implements Initializable {
                     if (pieces[i][j] == c) {
                         if (game.getBoard()[i][j].getPiece().getColor() != game.getCurrentPlayer().getColor()) {
                             game.getBoard()[i][j].removePiece();
+                            millMessage.setVisible(false);
                             game.setGameStatus(game.NORMAL);
                             game.changePlayer();
                         }
