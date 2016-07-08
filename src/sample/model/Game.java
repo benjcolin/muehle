@@ -24,6 +24,8 @@ public class Game {
     private int numberPiecesPlacedPlayer2 = 0;
     private Point[][] board = new Point[3][8];
     private ArrayList<Mill> mills = new ArrayList<Mill>();
+    private Piece selected = new Piece(Color.WHITE);
+    private Point oldPoint = new Point();
 
     public Game(Player player1, Player player2) {
         this.player1 = player1;
@@ -320,5 +322,22 @@ public class Game {
 
     public int getNumberPiecesPlacedPlayer2() {
         return numberPiecesPlacedPlayer2;
+    }
+
+    public void setSelected(Piece selected) {
+        this.selected = selected;
+    }
+
+    public Piece getSelected() {
+
+        return selected;
+    }
+
+    public void setOldPoint(Point oldPoint) {
+        this.oldPoint = oldPoint;
+    }
+
+    public Point getOldPoint() {
+        return oldPoint;
     }
 }

@@ -43,11 +43,8 @@ public class Controller1vs1 implements Initializable {
 
                 Tournament players = new Tournament();
 
-                Player player1 = new Player(Color.BLACK, player1Name.getText());
-                Player player2 = new Player(Color.WHITE, player2Name.getText());
-
-                players.addPlayer(player1);
-                players.addPlayer(player2);
+                players.addPlayer(new Player(Color.BLACK, player1Name.getText()));
+                players.addPlayer(new Player(Color.WHITE, player2Name.getText()));
 
                 ControllerGame controllerGame = new ControllerGame(players, stage);
 

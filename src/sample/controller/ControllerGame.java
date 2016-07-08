@@ -1,6 +1,5 @@
 package sample.controller;
 
-import com.sun.scenario.effect.impl.prism.ps.PPSBlend_BLUEPeer;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.model.*;
@@ -31,8 +29,6 @@ public class ControllerGame implements Initializable {
     private Stage stage;
     private Circle[][] board = new Circle[3][8];
     private Circle[][] pieces = new Circle[3][8];
-    private Piece selected = new Piece(Color.WHITE);
-    private Point oldPoint = new Point();
 
     @FXML
     private Text player1Name;
@@ -114,9 +110,9 @@ public class ControllerGame implements Initializable {
             if (game.getNumberPiecesPlacedCurrentPlayer() < 9) {
                 game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
                 played = true;
-            } else if (selected != null && (game.isOldPointNext(oldPoint, game.getPoint(row, col)) || game.getNumberPiecesOnBoardCurrentPlayer() == 3)) {
-                if (selected.getColor() == game.getCurrentPlayer().getColor()) {
-                    game.movePiece(selected, game.getPoint(row, col));
+            } else if (game.getSelected() != null && (game.isOldPointNext(game.getOldPoint(), game.getPoint(row, col)) || game.getNumberPiecesOnBoardCurrentPlayer() == 3)) {
+                if (game.getSelected().getColor() == game.getCurrentPlayer().getColor()) {
+                    game.movePiece(game.getSelected(), game.getPoint(row, col));
                     played = true;
                 }
             }
@@ -148,8 +144,8 @@ public class ControllerGame implements Initializable {
                 for (int j = 0; j < 8; j++) {
                     if (pieces[i][j] == c) {
 
-                        selected = game.getBoard()[i][j].getPiece();
-                        oldPoint = game.getPoint(i, j);
+                        game.setSelected(game.getBoard()[i][j].getPiece());
+                        game.setOldPoint(game.getPoint(i, j));
                     }
                 }
             }
