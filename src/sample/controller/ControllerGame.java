@@ -137,11 +137,17 @@ public class ControllerGame implements Initializable {
     }
 
     private void pieceHandler(MouseEvent mouseEvent) {
+
+        Boolean isInMill = false;
+        boolean canRemove = true;
+        int countMills = 0;
+
         Circle c = (Circle) mouseEvent.getSource();
         if (game.getGameStatus() == game.NORMAL) {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (pieces[i][j] == c) {
+
                         selected = game.getBoard()[i][j].getPiece();
                         oldPoint = game.getPoint(i, j);
                     }
@@ -153,10 +159,19 @@ public class ControllerGame implements Initializable {
                     if (pieces[i][j] == c) {
                         //prüfen ob der Stein in einer Mühle ist
                         if (game.getBoard()[i][j].getPiece().getColor() != game.getCurrentPlayer().getColor()) {
-                            game.getBoard()[i][j].removePiece();
-                            millMessage.setVisible(false);
-                            game.setGameStatus(game.NORMAL);
-                            game.changePlayer();
+                            if(!game.checkIfIsInMill(game.getBoard()[i][j].getPiece())){
+                                game.getBoard()[i][j].removePiece();
+                                game.cleanOldMills();
+                                millMessage.setVisible(false);
+                                game.setGameStatus(game.NORMAL);
+                                game.changePlayer();
+                            }else if(game.checkIfAllisInMill()){
+                                game.getBoard()[i][j].removePiece();
+                                game.cleanOldMills();
+                                millMessage.setVisible(false);
+                                game.setGameStatus(game.NORMAL);
+                                game.changePlayer();
+                            }
                         }
                     }
                 }

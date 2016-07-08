@@ -1,5 +1,6 @@
 package sample.model;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.scene.paint.Color;
 
 import javax.swing.*;
@@ -19,7 +20,6 @@ public class Game {
     private Player currentPlayer;
     private Piece[] piecesOfPlayer1 = new Piece[9];
     private Piece[] piecesOfPlayer2 = new Piece[9];
-
     private int numberPiecesPlacedPlayer1 = 0;
     private int numberPiecesPlacedPlayer2 = 0;
     private Point[][] board = new Point[3][8];
@@ -223,7 +223,7 @@ public class Game {
         return exist;
     }
 
-    private void cleanOldMills() {
+    public void cleanOldMills() {
         ArrayList<Integer> delete = new ArrayList<>();
         for (Mill m : mills) {
             if (board[m.getaRow()][m.getaCol()].getPiece() != null && board[m.getbRow()][m.getbCol()].getPiece() != null && board[m.getcRow()][m.getcCol()].getPiece() != null) {
@@ -263,6 +263,41 @@ public class Game {
         }
     }
 
+    public boolean checkIfIsInMill(Piece piece) {
+        boolean inMill = false;
+        int Row = 0;
+        int Col = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].getPiece() == piece) {
+                    Row = i;
+                    Col = j;
+                }
+            }
+        }
+        //prüfen ob der Stein in einer Mühle ist
+        for (Mill mill : getMills()) {
+            if (mill.getaCol() == Col && mill.getaRow() == Row || mill.getbCol() == Col && mill.getbRow() == Row || mill.getcCol() == Col && mill.getcRow() == Row) {
+                inMill = true;
+            }
+        }
+        return inMill;
+    }
+
+    public boolean checkIfAllisInMill(){
+        boolean allInMill = true;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(board[i][j].getPiece() != null){
+                    if (!checkIfIsInMill(board[i][j].getPiece()) && board[i][j].getPiece().getColor() != currentPlayer.getColor()){
+                        allInMill = false;
+                    }
+                }
+            }
+        }
+        return allInMill;
+    }
+
     public Point getPoint(int row, int col) {
         return board[row][col];
     }
@@ -273,6 +308,10 @@ public class Game {
         } else {
             currentPlayer = player1;
         }
+    }
+
+    public ArrayList<Mill> getMills() {
+        return mills;
     }
 
     public Point[][] getBoard() {
