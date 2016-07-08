@@ -77,9 +77,10 @@ public class ControllerGame implements Initializable {
 
         ControllerStart controllerStart = new ControllerStart(stage);
         giveUp.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-
             @Override
             public void handle(javafx.event.ActionEvent event) {
+                game.changePlayer();
+                JOptionPane.showMessageDialog(null, game.getCurrentPlayer().getName() + " hat gewonnen!", "Sieg", JOptionPane.INFORMATION_MESSAGE);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/start.fxml"));
                 Parent root = null;
                 try {
@@ -109,25 +110,27 @@ public class ControllerGame implements Initializable {
                 }
             }
         }
-        if (game.getNumberPiecesPlacedCurrentPlayer() < 9) {
-            game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
-            played = true;
-        } else if (selected != null && (game.isOldPointNext(oldPoint, game.getPoint(row, col)) || game.getNumberPiecesOnBoardCurrentPlayer() == 3)) {
-            if (selected.getColor() == game.getCurrentPlayer().getColor()) {
-                game.movePiece(selected, game.getPoint(row, col));
+        if(game.getGameStatus() == game.NORMAL) {
+            if (game.getNumberPiecesPlacedCurrentPlayer() < 9) {
+                game.movePiece(game.getPiecesOfCurrentPlayer()[game.getNumberPiecesOnBoardCurrentPlayer()], game.getPoint(row, col));
                 played = true;
+            } else if (selected != null && (game.isOldPointNext(oldPoint, game.getPoint(row, col)) || game.getNumberPiecesOnBoardCurrentPlayer() == 3)) {
+                if (selected.getColor() == game.getCurrentPlayer().getColor()) {
+                    game.movePiece(selected, game.getPoint(row, col));
+                    played = true;
+                }
             }
-        }
-        if (played) {
-            if (game.checkForMill()) {
-                //JOptionPane.showMessageDialog(null, "Du hast eine Mühle gebildet.", "Mühle", JOptionPane.INFORMATION_MESSAGE);
-                millMessage.setVisible(true);
-                millMessage.setStroke(Color.RED);
-                millMessage.setText("Du hast eine Mühle gebildet");
-                game.setGameStatus(game.NEWMILL);
-            } else {
-                game.changePlayer();
-                millMessage.setVisible(false);
+            if (played) {
+                if (game.checkForMill()) {
+                    //JOptionPane.showMessageDialog(null, "Du hast eine Mühle gebildet.", "Mühle", JOptionPane.INFORMATION_MESSAGE);
+                    millMessage.setVisible(true);
+                    millMessage.setStroke(Color.RED);
+                    millMessage.setText("Du hast eine Mühle gebildet");
+                    game.setGameStatus(game.NEWMILL);
+                } else {
+                    game.changePlayer();
+                    millMessage.setVisible(false);
+                }
             }
         }
         actualizeScreen();
