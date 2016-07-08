@@ -151,6 +151,7 @@ public class ControllerGame implements Initializable {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (pieces[i][j] == c) {
+                        //prüfen ob der Stein in einer Mühle ist
                         if (game.getBoard()[i][j].getPiece().getColor() != game.getCurrentPlayer().getColor()) {
                             game.getBoard()[i][j].removePiece();
                             millMessage.setVisible(false);
