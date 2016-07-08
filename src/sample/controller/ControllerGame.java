@@ -159,13 +159,7 @@ public class ControllerGame implements Initializable {
                     if (pieces[i][j] == c) {
                         //prüfen ob der Stein in einer Mühle ist
                         if (game.getBoard()[i][j].getPiece().getColor() != game.getCurrentPlayer().getColor()) {
-                            if(!game.checkIfIsInMill(game.getBoard()[i][j].getPiece())){
-                                game.getBoard()[i][j].removePiece();
-                                game.cleanOldMills();
-                                millMessage.setVisible(false);
-                                game.setGameStatus(game.NORMAL);
-                                game.changePlayer();
-                            }else if(game.checkIfAllisInMill()){
+                            if(!game.checkIfIsInMill(game.getBoard()[i][j].getPiece()) || game.checkIfAllisInMill()){
                                 game.getBoard()[i][j].removePiece();
                                 game.cleanOldMills();
                                 millMessage.setVisible(false);
